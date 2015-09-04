@@ -13,10 +13,10 @@ namespace SGBF.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class db_brasileiraoEntities : DbContext
+    public partial class Entities : DbContext
     {
-        public db_brasileiraoEntities()
-            : base("name=db_brasileiraoEntities")
+        public Entities()
+            : base("name=Entities")
         {
         }
     

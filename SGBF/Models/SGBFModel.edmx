@@ -41,7 +41,7 @@
           <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="foto" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <EntityContainer Name="db_brasileiraoEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Jogador" EntityType="Self.Jogador" />
         </EntityContainer>
       </Schema>
@@ -49,7 +49,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="JogadorStoreContainer" CdmEntityContainer="db_brasileiraoEntities">
+        <EntityContainerMapping StorageEntityContainer="JogadorStoreContainer" CdmEntityContainer="Entities">
           <EntitySetMapping Name="Jogador">
             <EntityTypeMapping TypeName="Jogador.Jogador">
               <MappingFragment StoreEntitySet="Jogador">
