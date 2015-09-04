@@ -8,9 +8,9 @@ namespace SGBF.Controllers
 {
     public abstract class ApplicationController
     {
-        protected db_brasileiraoEntities db()
+        protected Entities db()
         {
-            return new db_brasileiraoEntities();
+            return new Entities();
         }
     }
 }

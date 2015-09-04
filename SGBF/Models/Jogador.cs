@@ -23,5 +23,6 @@ namespace SGBF.Models
         public System.DateTime data_nasc { get; set; }
         public string email { get; set; }
         public byte[] foto { get; set; }
+        public int id { get; set; }
     }
 }

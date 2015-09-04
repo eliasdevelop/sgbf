@@ -76,24 +76,25 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Models\Jogador.Context.tt">
+    <Content Include="Index.aspx" />
+    <Content Include="Models\SGBFModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Jogador.edmx</DependentUpon>
-      <LastGenOutput>Jogador.Context.cs</LastGenOutput>
+      <DependentUpon>SGBFModel.edmx</DependentUpon>
+      <LastGenOutput>SGBFModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Jogador.tt">
+    <Content Include="Models\SGBFModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Jogador.edmx</DependentUpon>
-      <LastGenOutput>Jogador1.cs</LastGenOutput>
+      <DependentUpon>SGBFModel.edmx</DependentUpon>
+      <LastGenOutput>SGBFModel.cs</LastGenOutput>
     </Content>
     <Content Include="packages.config" />
     <Content Include="Assets\Scripts\jquery-1.9.1.min.map" />
-    <EntityDeploy Include="Models\Jogador.edmx">
+    <EntityDeploy Include="Models\SGBFModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Jogador.Designer.cs</LastGenOutput>
+      <LastGenOutput>SGBFModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Jogador.edmx.diagram">
-      <DependentUpon>Jogador.edmx</DependentUpon>
+    <Content Include="Models\SGBFModel.edmx.diagram">
+      <DependentUpon>SGBFModel.edmx</DependentUpon>
     </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -119,33 +120,55 @@
     <Content Include="Assets\Scripts\bootstrap.min.js" />
     <Content Include="Assets\Scripts\jquery-1.9.1.js" />
     <Content Include="Assets\Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Views\Jogador\Form.aspx" />
+    <Content Include="Views\Jogador\Index.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Jogador.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Jogador.Context.tt</DependentUpon>
+    <Compile Include="Controllers\ApplicationController.cs" />
+    <Compile Include="Controllers\JogadorController.cs" />
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\Jogador.cs">
-      <DependentUpon>Jogador.tt</DependentUpon>
+      <DependentUpon>SGBFModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Jogador.Designer.cs">
+    <Compile Include="Models\SGBFModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Jogador.edmx</DependentUpon>
+      <DependentUpon>SGBFModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Jogador1.cs">
+    <Compile Include="Models\SGBFModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Jogador.tt</DependentUpon>
+      <DependentUpon>SGBFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SGBFModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SGBFModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Jogador\Form.aspx.cs">
+      <DependentUpon>Form.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Jogador\Form.aspx.designer.cs">
+      <DependentUpon>Form.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Jogador\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Jogador\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Views\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
