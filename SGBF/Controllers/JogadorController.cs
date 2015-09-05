@@ -14,6 +14,22 @@ namespace SGBF.Controllers
             var con = db();
 
             return con.Jogador.ToList();
+            //return con.Jogador.SqlQuery("SELECT id, cpf, apelido, nome, num_camisa, posicao, nacionalidade," + 
+            //                            "data_nasc, email, foto, id_equipe, FLOOR(DATEDIFF(DAY, data_nasc, GETDATE()) / 365.25) as idade FROM Jogador").ToList();
+        }
+
+        public List<Jogador> find_by(String nome, String apelido, int idade)
+        {
+            var con = db();
+
+            if(nome == "" && apelido == "" && idade == 0)
+            {
+                return con.Jogador.ToList();
+            }
+            else
+            {
+                return con.Jogador.Where(Jogador => Jogador.nome.Contains(nome) && Jogador.apelido.Contains(apelido)).ToList();
+            }           
         }
 
 

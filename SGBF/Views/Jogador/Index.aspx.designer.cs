@@ -13,6 +13,33 @@ namespace SGBF.Views.Jogador {
     public partial class Index1 {
         
         /// <summary>
+        /// nome control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox nome;
+        
+        /// <summary>
+        /// apelido control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox apelido;
+        
+        /// <summary>
+        /// idade control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox idade;
+        
+        /// <summary>
         /// JogadoresList control.
         /// </summary>
         /// <remarks>

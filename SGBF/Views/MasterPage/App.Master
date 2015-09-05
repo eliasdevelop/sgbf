@@ -37,7 +37,32 @@
                 </ul>
             </div>
         </div>
-    </header>   
+    </header>
+    <div class="container">
+        <% if (Session["flash_message"] != null || Session["error_message"] != null) { %>
+            <div class="messages">
+                <% if (Session["flash_message"] != null) { %>
+                <div class="alert alert-info alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <%= Session["flash_message"] %>
+                </div>
+                <%
+                    Session.Remove("flash_message");
+                }
+                %>
+
+                <% if (Session["error_message"] != null) { %>
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <%= Session["error_message"] %>
+                </div>
+                <%
+                    Session.Remove("error_message");
+                }
+                %>
+            </div>
+        <% } %>
+    </div>   
 
     <form id="form1" runat="server">
         <div>

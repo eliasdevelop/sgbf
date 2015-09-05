@@ -49,6 +49,21 @@ namespace SGBF.Views.Jogador
             loadJogadores();
         }
 
+        protected void Pesquisar_Click(object sender, EventArgs e)
+        {
+            int idadeP;
+            if (idade.Text == "")
+            {
+                idadeP = 0;
+            }
+            else
+            {
+                idadeP = Int32.Parse(idade.Text);
+            }
+            JogadoresList.DataSource = controller().find_by(nome.Text, apelido.Text, idadeP);
+            JogadoresList.DataBind();
+        }
+
         private JogadorController controller()
         {
             return new JogadorController();

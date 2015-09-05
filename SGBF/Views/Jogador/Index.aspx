@@ -5,6 +5,35 @@
     <div class="container">
         <div class="panel panel-default">
             <div class="panel-heading">
+                <h3 class="panel-title">Filtro</h3>
+            </div>
+            <div class="panel-body">
+                <div>
+                    <asp:Label Text="Nome" runat="server" />
+                    <div>
+                        <asp:TextBox runat="server" ID="nome" />
+                    </div>
+                </div>
+                <div>
+                    <asp:Label Text="Apelido" runat="server" />
+                    <div>
+                        <asp:TextBox runat="server" ID="apelido" />
+                    </div>
+                </div>
+                <div>
+                    <asp:Label Text="Idade" runat="server" />
+                    <div>
+                        <asp:TextBox runat="server" ID="idade" />
+                    </div>
+                </div>
+                <br/>
+                <div>
+                    <asp:Button CssClass="btn btn-primary" runat="server" Text="Pesquisar" OnClick="Pesquisar_Click" UseSubmitBehavior="true" />
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
                 <h3 class="panel-title">Jogadores</h3>
             </div>
             <div class="panel-body">
