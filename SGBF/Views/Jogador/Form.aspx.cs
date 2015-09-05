@@ -34,7 +34,7 @@ namespace SGBF.Views.Jogador
                         posicao.Text = jogador.posicao;
                         num_camisa.Text = jogador.num_camisa.ToString();
                         nacionalidade.Text = jogador.nacionalidade;
-                        data_nasc.Text = jogador.data_nasc.ToString();
+                        data_nasc.Text = jogador.data_nasc.ToString("dd/MM/yyyy");
                         email.Text = jogador.email;
 
                     }
@@ -62,16 +62,15 @@ namespace SGBF.Views.Jogador
 
         private bool create()
         {
-            //FALTA AJUSTAR DATA, ATUALMENTE TA CRIANDO NA HORA
             return controller().create(cpf.Text, apelido.Text, nome.Text, Int32.Parse(num_camisa.Text), posicao.Text,
-                                       nacionalidade.Text, new DateTime(), email.Text);
+                                       nacionalidade.Text, DateTime.Parse(data_nasc.Text), email.Text);
         }
 
         private bool update()
         {
             int jogador_id = Int32.Parse(id.Value);
             return controller().update(jogador_id, cpf.Text, apelido.Text, nome.Text, Int32.Parse(num_camisa.Text), posicao.Text,
-                                       nacionalidade.Text, new DateTime(), email.Text);
+                                       nacionalidade.Text, DateTime.Parse(data_nasc.Text), email.Text);
         }
 
         private JogadorController controller()

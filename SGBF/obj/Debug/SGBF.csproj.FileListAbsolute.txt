@@ -21,4 +21,3 @@
 \\psf\Home\Documents\Development\Projects\sgbf\SGBF\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 \\psf\Home\Documents\Development\Projects\sgbf\SGBF\obj\Debug\SGBF.dll
 \\psf\Home\Documents\Development\Projects\sgbf\SGBF\obj\Debug\SGBF.pdb
-\\psf\Home\Documents\Development\Projects\sgbf\SGBF\obj\Debug\SGBF.csprojResolveAssemblyReference.cache
