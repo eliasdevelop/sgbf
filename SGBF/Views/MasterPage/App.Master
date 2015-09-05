@@ -20,7 +20,7 @@
     <header class="navbar navbar-default" role="banner">
         <div class="container">
             <div class="navbar-header">
-                <a href="index.aspx" class="navbar-brand">SGBF</a>
+                <a href="/index.aspx" class="navbar-brand">SGBF</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -30,7 +30,7 @@
                         </a> 
                     </li>
                     <li>
-                        <a href="#"> 
+                        <a href="/Views/Equipe/Index.aspx"> 
                             <i class="fa fa-pencil-square-o"></i> Equipes
                         </a> 
                     </li>
