@@ -25,6 +25,11 @@ namespace SGBF.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Arbitro> Arbitro { get; set; }
+        public virtual DbSet<Campeonato> Campeonato { get; set; }
+        public virtual DbSet<Equipe> Equipe { get; set; }
+        public virtual DbSet<Estadio> Estadio { get; set; }
         public virtual DbSet<Jogador> Jogador { get; set; }
+        public virtual DbSet<Jogo> Jogo { get; set; }
     }
 }

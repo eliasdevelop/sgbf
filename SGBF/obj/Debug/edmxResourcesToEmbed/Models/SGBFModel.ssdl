@@ -1,21 +1,212 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="Jogador.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="SGBFModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Arbitro">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="idade" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Campeonato">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="divisao" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Equipe">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="nome_completo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="data_fundacao" Type="date" Nullable="false" />
+    <Property Name="escudo" Type="image" />
+    <Property Name="id_estadio" Type="int" />
+  </EntityType>
+  <EntityType Name="Equipe_Campeonato">
+    <Key>
+      <PropertyRef Name="id_campeonato" />
+      <PropertyRef Name="id_equipe" />
+    </Key>
+    <Property Name="id_campeonato" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_equipe" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Estadio">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="capacidade" Type="int" Nullable="false" />
+    <Property Name="cidade" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="Jogador">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="cpf" Type="nchar" MaxLength="11" Nullable="false" />
-    <Property Name="apelido" Type="text" />
-    <Property Name="nome" Type="text" Nullable="false" />
+    <Property Name="apelido" Type="nvarchar" MaxLength="50" />
+    <Property Name="nome" Type="nchar" MaxLength="50" Nullable="false" />
     <Property Name="num_camisa" Type="int" />
-    <Property Name="posicao" Type="text" Nullable="false" />
-    <Property Name="nacionalidade" Type="text" Nullable="false" />
+    <Property Name="posicao" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="nacionalidade" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="data_nasc" Type="date" Nullable="false" />
-    <Property Name="email" Type="text" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
     <Property Name="foto" Type="image" />
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_equipe" Type="int" />
   </EntityType>
-  <EntityContainer Name="JogadorStoreContainer">
+  <EntityType Name="Jogo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_equipe_casa" Type="int" Nullable="false" />
+    <Property Name="id_equipe_visitante" Type="int" Nullable="false" />
+    <Property Name="id_arbitro" Type="int" Nullable="false" />
+    <Property Name="id_campeonato" Type="int" Nullable="false" />
+    <Property Name="num_gold_casa" Type="int" Nullable="false" />
+    <Property Name="num_gol_visitante" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Equipe_Campeonato_Campeonato">
+    <End Role="Campeonato" Type="Self.Campeonato" Multiplicity="1" />
+    <End Role="Equipe_Campeonato" Type="Self.Equipe_Campeonato" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Campeonato">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Equipe_Campeonato">
+        <PropertyRef Name="id_campeonato" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Equipe_Campeonato_Equipe">
+    <End Role="Equipe" Type="Self.Equipe" Multiplicity="1" />
+    <End Role="Equipe_Campeonato" Type="Self.Equipe_Campeonato" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Equipe">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Equipe_Campeonato">
+        <PropertyRef Name="id_equipe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Equipe_Estadio">
+    <End Role="Estadio" Type="Self.Estadio" Multiplicity="0..1" />
+    <End Role="Equipe" Type="Self.Equipe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estadio">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Equipe">
+        <PropertyRef Name="id_estadio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Jogador_Equipe">
+    <End Role="Equipe" Type="Self.Equipe" Multiplicity="0..1" />
+    <End Role="Jogador" Type="Self.Jogador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Equipe">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Jogador">
+        <PropertyRef Name="id_equipe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Jogo_Arbitro">
+    <End Role="Arbitro" Type="Self.Arbitro" Multiplicity="1" />
+    <End Role="Jogo" Type="Self.Jogo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Arbitro">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Jogo">
+        <PropertyRef Name="id_arbitro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Jogo_Campeonato">
+    <End Role="Campeonato" Type="Self.Campeonato" Multiplicity="1" />
+    <End Role="Jogo" Type="Self.Jogo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Campeonato">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Jogo">
+        <PropertyRef Name="id_campeonato" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Jogo_EquipeCasa">
+    <End Role="Equipe" Type="Self.Equipe" Multiplicity="1" />
+    <End Role="Jogo" Type="Self.Jogo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Equipe">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Jogo">
+        <PropertyRef Name="id_equipe_casa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Jogo_EquipeVisitante">
+    <End Role="Equipe" Type="Self.Equipe" Multiplicity="1" />
+    <End Role="Jogo" Type="Self.Jogo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Equipe">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Jogo">
+        <PropertyRef Name="id_equipe_visitante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SGBFModelStoreContainer">
+    <EntitySet Name="Arbitro" EntityType="Self.Arbitro" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Campeonato" EntityType="Self.Campeonato" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Equipe" EntityType="Self.Equipe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Equipe_Campeonato" EntityType="Self.Equipe_Campeonato" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Estadio" EntityType="Self.Estadio" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Jogador" EntityType="Self.Jogador" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Jogo" EntityType="Self.Jogo" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Equipe_Campeonato_Campeonato" Association="Self.FK_Equipe_Campeonato_Campeonato">
+      <End Role="Campeonato" EntitySet="Campeonato" />
+      <End Role="Equipe_Campeonato" EntitySet="Equipe_Campeonato" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Equipe_Campeonato_Equipe" Association="Self.FK_Equipe_Campeonato_Equipe">
+      <End Role="Equipe" EntitySet="Equipe" />
+      <End Role="Equipe_Campeonato" EntitySet="Equipe_Campeonato" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Equipe_Estadio" Association="Self.FK_Equipe_Estadio">
+      <End Role="Estadio" EntitySet="Estadio" />
+      <End Role="Equipe" EntitySet="Equipe" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Jogador_Equipe" Association="Self.FK_Jogador_Equipe">
+      <End Role="Equipe" EntitySet="Equipe" />
+      <End Role="Jogador" EntitySet="Jogador" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Jogo_Arbitro" Association="Self.FK_Jogo_Arbitro">
+      <End Role="Arbitro" EntitySet="Arbitro" />
+      <End Role="Jogo" EntitySet="Jogo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Jogo_Campeonato" Association="Self.FK_Jogo_Campeonato">
+      <End Role="Campeonato" EntitySet="Campeonato" />
+      <End Role="Jogo" EntitySet="Jogo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Jogo_EquipeCasa" Association="Self.FK_Jogo_EquipeCasa">
+      <End Role="Equipe" EntitySet="Equipe" />
+      <End Role="Jogo" EntitySet="Jogo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Jogo_EquipeVisitante" Association="Self.FK_Jogo_EquipeVisitante">
+      <End Role="Equipe" EntitySet="Equipe" />
+      <End Role="Jogo" EntitySet="Jogo" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

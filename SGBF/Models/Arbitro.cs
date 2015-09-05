@@ -12,20 +12,19 @@ namespace SGBF.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Jogador
+    public partial class Arbitro
     {
-        public string cpf { get; set; }
-        public string apelido { get; set; }
-        public string nome { get; set; }
-        public Nullable<int> num_camisa { get; set; }
-        public string posicao { get; set; }
-        public string nacionalidade { get; set; }
-        public System.DateTime data_nasc { get; set; }
-        public string email { get; set; }
-        public byte[] foto { get; set; }
-        public int id { get; set; }
-        public Nullable<int> id_equipe { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Arbitro()
+        {
+            this.Jogo = new HashSet<Jogo>();
+        }
     
-        public virtual Equipe Equipe { get; set; }
+        public int id { get; set; }
+        public string nome { get; set; }
+        public int idade { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Jogo> Jogo { get; set; }
     }
 }

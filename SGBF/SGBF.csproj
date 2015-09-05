@@ -134,7 +134,22 @@
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Arbitro.cs">
+      <DependentUpon>SGBFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Campeonato.cs">
+      <DependentUpon>SGBFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Equipe.cs">
+      <DependentUpon>SGBFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Estadio.cs">
+      <DependentUpon>SGBFModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Jogador.cs">
+      <DependentUpon>SGBFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Jogo.cs">
       <DependentUpon>SGBFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SGBFModel.Context.cs">

@@ -12,20 +12,19 @@ namespace SGBF.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Jogador
+    public partial class Jogo
     {
-        public string cpf { get; set; }
-        public string apelido { get; set; }
-        public string nome { get; set; }
-        public Nullable<int> num_camisa { get; set; }
-        public string posicao { get; set; }
-        public string nacionalidade { get; set; }
-        public System.DateTime data_nasc { get; set; }
-        public string email { get; set; }
-        public byte[] foto { get; set; }
         public int id { get; set; }
-        public Nullable<int> id_equipe { get; set; }
+        public int id_equipe_casa { get; set; }
+        public int id_equipe_visitante { get; set; }
+        public int id_arbitro { get; set; }
+        public int id_campeonato { get; set; }
+        public int num_gold_casa { get; set; }
+        public int num_gol_visitante { get; set; }
     
+        public virtual Arbitro Arbitro { get; set; }
+        public virtual Campeonato Campeonato { get; set; }
         public virtual Equipe Equipe { get; set; }
+        public virtual Equipe Equipe1 { get; set; }
     }
 }

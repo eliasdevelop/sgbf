@@ -4,8 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="631d79b273494ba5876543ef3ec7e84c" Name="Diagram1">
-        <EntityTypeShape EntityType="Jogador.Jogador" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="9dfa554f09ed4a67a0365aca6d02d3cd" Name="Diagram1">
+        <EntityTypeShape EntityType="SGBFModel.Arbitro" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SGBFModel.Campeonato" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="SGBFModel.Equipe" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SGBFModel.Estadio" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SGBFModel.Jogador" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SGBFModel.Jogo" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="SGBFModel.FK_Jogo_Arbitro" ManuallyRouted="false" />
+        <AssociationConnector Association="SGBFModel.FK_Jogo_Campeonato" ManuallyRouted="false" />
+        <AssociationConnector Association="SGBFModel.FK_Equipe_Estadio" ManuallyRouted="false" />
+        <AssociationConnector Association="SGBFModel.FK_Jogador_Equipe" ManuallyRouted="false" />
+        <AssociationConnector Association="SGBFModel.FK_Jogo_EquipeCasa" ManuallyRouted="false" />
+        <AssociationConnector Association="SGBFModel.FK_Jogo_EquipeVisitante" ManuallyRouted="false" />
+        <AssociationConnector Association="SGBFModel.Equipe_Campeonato" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -1,8 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="JogadorStoreContainer" CdmEntityContainer="Entities">
+  <EntityContainerMapping StorageEntityContainer="SGBFModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="Arbitro">
+      <EntityTypeMapping TypeName="SGBFModel.Arbitro">
+        <MappingFragment StoreEntitySet="Arbitro">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="idade" ColumnName="idade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Campeonato">
+      <EntityTypeMapping TypeName="SGBFModel.Campeonato">
+        <MappingFragment StoreEntitySet="Campeonato">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="divisao" ColumnName="divisao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Equipe">
+      <EntityTypeMapping TypeName="SGBFModel.Equipe">
+        <MappingFragment StoreEntitySet="Equipe">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="nome_completo" ColumnName="nome_completo" />
+          <ScalarProperty Name="data_fundacao" ColumnName="data_fundacao" />
+          <ScalarProperty Name="escudo" ColumnName="escudo" />
+          <ScalarProperty Name="id_estadio" ColumnName="id_estadio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estadio">
+      <EntityTypeMapping TypeName="SGBFModel.Estadio">
+        <MappingFragment StoreEntitySet="Estadio">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="capacidade" ColumnName="capacidade" />
+          <ScalarProperty Name="cidade" ColumnName="cidade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Jogador">
-      <EntityTypeMapping TypeName="Jogador.Jogador">
+      <EntityTypeMapping TypeName="SGBFModel.Jogador">
         <MappingFragment StoreEntitySet="Jogador">
           <ScalarProperty Name="cpf" ColumnName="cpf" />
           <ScalarProperty Name="apelido" ColumnName="apelido" />
@@ -14,8 +54,30 @@
           <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="foto" ColumnName="foto" />
           <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_equipe" ColumnName="id_equipe" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Jogo">
+      <EntityTypeMapping TypeName="SGBFModel.Jogo">
+        <MappingFragment StoreEntitySet="Jogo">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_equipe_casa" ColumnName="id_equipe_casa" />
+          <ScalarProperty Name="id_equipe_visitante" ColumnName="id_equipe_visitante" />
+          <ScalarProperty Name="id_arbitro" ColumnName="id_arbitro" />
+          <ScalarProperty Name="id_campeonato" ColumnName="id_campeonato" />
+          <ScalarProperty Name="num_gold_casa" ColumnName="num_gold_casa" />
+          <ScalarProperty Name="num_gol_visitante" ColumnName="num_gol_visitante" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Equipe_Campeonato" TypeName="SGBFModel.Equipe_Campeonato" StoreEntitySet="Equipe_Campeonato">
+      <EndProperty Name="Campeonato">
+        <ScalarProperty Name="id" ColumnName="id_campeonato" />
+      </EndProperty>
+      <EndProperty Name="Equipe">
+        <ScalarProperty Name="id" ColumnName="id_equipe" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>
