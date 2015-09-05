@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace SGBF.Views.Jogador
 {
-    public partial class Form : System.Web.UI.Page
+    public partial class Form1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

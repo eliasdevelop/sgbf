@@ -1,84 +1,82 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Form.aspx.cs" Inherits="SGBF.Views.Jogador.Form" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div class="row">
-            <div class="medium-12 columns">
-                <h2>Jogador</h2>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/MasterPage/App.Master" AutoEventWireup="true" CodeBehind="Form.aspx.cs" Inherits="SGBF.Views.Jogador.Form1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+     <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Jogador</h3>
+            </div>
+            <div class="panel-body">
                 <asp:HiddenField ID="id" runat="server" />
+                
                 <div>
-                    <label>
-                        <asp:Label Text="Nome" runat="server" />
+                    <asp:Label Text="Nome" runat="server" />
+                    <div>
                         <asp:TextBox runat="server" ID="nome" />
-                    </label>
-                    <asp:RequiredFieldValidator CssClass="error-message" runat="server"
-                        ControlToValidate="nome" ErrorMessage="Campo obrigatório" EnableClientScript="true"></asp:RequiredFieldValidator>
-                </div>
+                        <asp:RequiredFieldValidator CssClass="error-message" runat="server"
+                    ControlToValidate="nome" ErrorMessage="Campo obrigatório" EnableClientScript="true"></asp:RequiredFieldValidator>
+                    </div>    
+                </div> 
                 <div>
-                    <label>
-                        <asp:Label Text="Apelido" runat="server" />
+                    <asp:Label Text="Apelido" runat="server" />
+                    <div>
                         <asp:TextBox runat="server" ID="apelido" />
-                    </label>
+                    </div>
                 </div>
                 <div>
-                    <label>
-                        <asp:Label Text="CPF" runat="server" />
+                    <asp:Label Text="CPF" runat="server" />
+                    <div>
                         <asp:TextBox runat="server" ID="cpf" />
-                    </label>
-                    <asp:RequiredFieldValidator CssClass="error-message" runat="server"
-                        ControlToValidate="cpf" ErrorMessage="Campo obrigatório" EnableClientScript="true"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator CssClass="error-message" runat="server"
+                    ControlToValidate="cpf" ErrorMessage="Campo obrigatório" EnableClientScript="true"></asp:RequiredFieldValidator>
+                    </div>
                 </div>
                 <div>
-                    <label>
-                        <asp:Label Text="Posição" runat="server" />
+                    <asp:Label Text="Posição" runat="server" />
+                    <div>
                         <asp:TextBox runat="server" ID="posicao" />
-                    </label>
-                    <asp:RequiredFieldValidator CssClass="error-message" runat="server"
-                        ControlToValidate="posicao" ErrorMessage="Campo obrigatório" EnableClientScript="true"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator CssClass="error-message" runat="server"
+                    ControlToValidate="posicao" ErrorMessage="Campo obrigatório" EnableClientScript="true"></asp:RequiredFieldValidator>
+                    </div>
                 </div>
                 <div>
-                    <label>
-                        <asp:Label Text="Camisa" runat="server" />
+                    <asp:Label Text="Camisa" runat="server" />
+                    <div>
                         <asp:TextBox runat="server" ID="num_camisa" />
-                    </label>
+                    </div>
                 </div>
                 <div>
-                    <label>
-                        <asp:Label Text="Nacionalidade" runat="server" />
+                    <asp:Label Text="Nacionalidade" runat="server" />
+                    <div>
                         <asp:TextBox runat="server" ID="nacionalidade" />
-                    </label>
-                    <asp:RequiredFieldValidator CssClass="error-message" runat="server"
-                        ControlToValidate="nacionalidade" ErrorMessage="Campo obrigatório" EnableClientScript="true"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator CssClass="error-message" runat="server"
+                    ControlToValidate="nacionalidade" ErrorMessage="Campo obrigatório" EnableClientScript="true"></asp:RequiredFieldValidator>
+                    </div>  
                 </div>
                 <div>
-                    <label>
-                        <asp:Label Text="Data de Nascimento" runat="server" />
+                    <asp:Label Text="Data de Nascimento" runat="server" />
+                    <div>
                         <asp:TextBox runat="server" ID="data_nasc" />
-                    </label>
-                    <asp:RequiredFieldValidator CssClass="error-message" runat="server"
-                        ControlToValidate="data_nasc" ErrorMessage="Campo obrigatório" EnableClientScript="true"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator CssClass="error-message" runat="server"
+                    ControlToValidate="data_nasc" ErrorMessage="Campo obrigatório" EnableClientScript="true"></asp:RequiredFieldValidator>
+                    </div>
                 </div>
                 <div>
-                    <label>
-                        <asp:Label Text="Email" runat="server" />
+                    <asp:Label Text="Email" runat="server" />
+                    <div>
                         <asp:TextBox runat="server" ID="email" />
-                    </label>
-                </div>
-                <div>           
-                    <input id="foto" type="button" value="Upload Foto" />                
+                    </div>
                 </div>
                 <div>
-                    <asp:Button CssClass="button" runat="server" Text="Salvar" OnClick="Save_Click" UseSubmitBehavior="true" />
-                    <a href="Index.aspx" title="Cancelar" class="button info">Cancelar</a>
+                    <input id="foto" type="button" class="btn btn-default" value="Upload Foto" />   
+                </div>
+                <br/>
+                <div>
+                    <asp:Button CssClass="btn btn-success" runat="server" Text="Salvar" OnClick="Save_Click" UseSubmitBehavior="true" />
+                    <a href="Index.aspx" title="Cancelar" class="btn btn-default">Cancelar</a>
                 </div>
             </div>
         </div>
-    </form>
-</body>
-</html>
+     </div>
+</asp:Content>

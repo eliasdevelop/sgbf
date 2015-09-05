@@ -76,7 +76,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Index.aspx" />
+    <Content Include="Assets\CSS\app.css" />
+    <Content Include="index.aspx" />
     <Content Include="Models\SGBFModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>SGBFModel.edmx</DependentUpon>
@@ -88,7 +89,7 @@
       <LastGenOutput>SGBFModel.cs</LastGenOutput>
     </Content>
     <Content Include="packages.config" />
-    <Content Include="Assets\Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Assets\Bootstrap\Scripts\jquery-1.9.1.min.map" />
     <EntityDeploy Include="Models\SGBFModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>SGBFModel.Designer.cs</LastGenOutput>
@@ -96,6 +97,9 @@
     <Content Include="Models\SGBFModel.edmx.diagram">
       <DependentUpon>SGBFModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Views\Jogador\Form.aspx" />
+    <Content Include="Views\Jogador\Index.aspx" />
+    <Content Include="Views\MasterPage\App.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -104,35 +108,33 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Content\bootstrap-theme.css" />
-    <Content Include="Assets\Content\bootstrap-theme.min.css" />
-    <Content Include="Assets\Content\bootstrap.css" />
-    <Content Include="Assets\Content\bootstrap.min.css" />
-    <Content Include="Assets\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Assets\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Assets\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Assets\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Assets\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Assets\Content\bootstrap.css.map" />
-    <Content Include="Assets\Content\bootstrap-theme.css.map" />
-    <None Include="Assets\Scripts\jquery-1.9.1.intellisense.js" />
-    <Content Include="Assets\Scripts\bootstrap.js" />
-    <Content Include="Assets\Scripts\bootstrap.min.js" />
-    <Content Include="Assets\Scripts\jquery-1.9.1.js" />
-    <Content Include="Assets\Scripts\jquery-1.9.1.min.js" />
-    <Content Include="Views\Jogador\Form.aspx" />
-    <Content Include="Views\Jogador\Index.aspx" />
+    <Content Include="Assets\Bootstrap\Content\bootstrap-theme.css" />
+    <Content Include="Assets\Bootstrap\Content\bootstrap-theme.min.css" />
+    <Content Include="Assets\Bootstrap\Content\bootstrap.css" />
+    <Content Include="Assets\Bootstrap\Content\bootstrap.min.css" />
+    <Content Include="Assets\Bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Assets\Bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Assets\Bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Assets\Bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Assets\Bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Assets\Bootstrap\Content\bootstrap.css.map" />
+    <Content Include="Assets\Bootstrap\Content\bootstrap-theme.css.map" />
+    <None Include="Assets\Bootstrap\Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Assets\Bootstrap\Scripts\bootstrap.js" />
+    <Content Include="Assets\Bootstrap\Scripts\bootstrap.min.js" />
+    <Content Include="Assets\Bootstrap\Scripts\jquery-1.9.1.js" />
+    <Content Include="Assets\Bootstrap\Scripts\jquery-1.9.1.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\JogadorController.cs" />
-    <Compile Include="Index.aspx.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Index.aspx.designer.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\Arbitro.cs">
       <DependentUpon>SGBFModel.tt</DependentUpon>
@@ -182,8 +184,17 @@
     <Compile Include="Views\Jogador\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\MasterPage\App.Master.cs">
+      <DependentUpon>App.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\MasterPage\App.Master.designer.cs">
+      <DependentUpon>App.Master</DependentUpon>
+    </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Assets\Javascript\" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>

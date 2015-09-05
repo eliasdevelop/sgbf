@@ -1,0 +1,54 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="App.master.cs" Inherits="SGBF.Views.MasterPage.App" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title></title>
+
+    <link href="/Assets/Bootstrap/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Assets/Bootstrap/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="/Assets/CSS/app.css" rel="stylesheet" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <header class="navbar navbar-default" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="index.aspx" class="navbar-brand">SGBF</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/Views/Jogador/Index.aspx"> 
+                            <i class="fa fa-pencil-square-o"></i> Jogadores
+                        </a> 
+                    </li>
+                    <li>
+                        <a href="#"> 
+                            <i class="fa fa-pencil-square-o"></i> Equipes
+                        </a> 
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>   
+
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+
+    <script src="/Assets/Bootstrap/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="/Assets/Bootstrap/Scripts/bootstrap.min.js"></script>
+   
+</body>
+</html>
