@@ -97,6 +97,8 @@
     <Content Include="Models\SGBFModel.edmx.diagram">
       <DependentUpon>SGBFModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Views\Arbitro\Form.aspx" />
+    <Content Include="Views\Arbitro\Index.aspx" />
     <Content Include="Views\Equipe\Form.aspx" />
     <Content Include="Views\Equipe\Index.aspx" />
     <Content Include="Views\Estadio\Form.aspx" />
@@ -132,6 +134,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\ApplicationController.cs" />
+    <Compile Include="Controllers\ArbitroController.cs" />
     <Compile Include="Controllers\EquipeController.cs" />
     <Compile Include="Controllers\EstadioController.cs" />
     <Compile Include="Controllers\JogadorController.cs" />
@@ -176,6 +179,20 @@
       <DependentUpon>SGBFModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Arbitro\Form.aspx.cs">
+      <DependentUpon>Form.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Arbitro\Form.aspx.designer.cs">
+      <DependentUpon>Form.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Arbitro\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Arbitro\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Equipe\Form.aspx.cs">
       <DependentUpon>Form.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
