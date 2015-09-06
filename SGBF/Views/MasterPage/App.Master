@@ -39,9 +39,14 @@
                             <i class="fa fa-pencil-square-o"></i> Estadios
                         </a> 
                     </li>
-                     <li>
+                    <li>
                         <a href="/Views/Arbitro/Index.aspx"> 
                             <i class="fa fa-pencil-square-o"></i> Arbitros
+                        </a> 
+                    </li>
+                    <li>
+                        <a href="/Views/Campeonato/Index.aspx"> 
+                            <i class="fa fa-pencil-square-o"></i> Campeonatos
                         </a> 
                     </li>
                 </ul>
