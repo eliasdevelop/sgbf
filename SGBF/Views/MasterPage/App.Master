@@ -34,6 +34,11 @@
                             <i class="fa fa-pencil-square-o"></i> Equipes
                         </a> 
                     </li>
+                    <li>
+                        <a href="/Views/Estadio/Index.aspx"> 
+                            <i class="fa fa-pencil-square-o"></i> Estadios
+                        </a> 
+                    </li>
                 </ul>
             </div>
         </div>

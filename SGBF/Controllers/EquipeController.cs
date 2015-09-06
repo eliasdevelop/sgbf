@@ -43,7 +43,7 @@ namespace SGBF.Controllers
         {
             var con = db();
 
-            Equipe equipe = new Equipe();
+            Equipe equipe = con.Equipe.Find(id);
             equipe.nome = nome;
             equipe.nome_completo = nome_completo;
             equipe.data_fundacao = data_fundacao;

@@ -99,6 +99,8 @@
     </Content>
     <Content Include="Views\Equipe\Form.aspx" />
     <Content Include="Views\Equipe\Index.aspx" />
+    <Content Include="Views\Estadio\Form.aspx" />
+    <Content Include="Views\Estadio\Index.aspx" />
     <Content Include="Views\Jogador\Form.aspx" />
     <Content Include="Views\Jogador\Index.aspx" />
     <Content Include="Views\MasterPage\App.Master" />
@@ -131,6 +133,7 @@
   <ItemGroup>
     <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\EquipeController.cs" />
+    <Compile Include="Controllers\EstadioController.cs" />
     <Compile Include="Controllers\JogadorController.cs" />
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -185,6 +188,20 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\Equipe\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Estadio\Form.aspx.cs">
+      <DependentUpon>Form.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Estadio\Form.aspx.designer.cs">
+      <DependentUpon>Form.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Estadio\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Estadio\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Jogador\Form.aspx.cs">
