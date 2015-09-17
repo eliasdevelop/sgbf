@@ -55,11 +55,20 @@ namespace SGBF.Controllers
         public bool delete(int id)
         {
             var con = db();
+            int rows = 0;
+            try
+            {
+                Estadio estadio = con.Estadio.Find(id);
+                con.Estadio.Remove(estadio);
 
-            Estadio estadio = con.Estadio.Find(id);
-            con.Estadio.Remove(estadio);
+                rows = con.SaveChanges();
 
-            int rows = con.SaveChanges();
+                return rows.Equals(1);
+            }
+            catch (Exception ex)
+            { 
+
+            }
 
             return rows.Equals(1);
         }
