@@ -31,13 +31,13 @@ namespace SGBF.Views.Jogador {
         protected global::System.Web.UI.WebControls.TextBox apelido;
         
         /// <summary>
-        /// idade control.
+        /// equipe control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox idade;
+        protected global::System.Web.UI.WebControls.TextBox equipe;
         
         /// <summary>
         /// JogadoresList control.

@@ -1,5 +1,6 @@
 ﻿using System;
 using SGBF.Controllers;
+using SGBF.Helpers;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,8 @@ namespace SGBF.Views.Jogador
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            populateDropDown();
+
             if (!IsPostBack)
             {
                 String jogador_id = Request.QueryString["id"];
@@ -36,6 +39,7 @@ namespace SGBF.Views.Jogador
                         nacionalidade.Text = jogador.nacionalidade;
                         data_nasc.Text = jogador.data_nasc.ToString("dd/MM/yyyy");
                         email.Text = jogador.email;
+                        equipe.Text = jogador.id_equipe.ToString();
 
                     }
                 }
@@ -63,19 +67,25 @@ namespace SGBF.Views.Jogador
         private bool create()
         {
             return controller().create(cpf.Text, apelido.Text, nome.Text, Int32.Parse(num_camisa.Text), posicao.Text,
-                                       nacionalidade.Text, DateTime.Parse(data_nasc.Text), email.Text);
+                                       nacionalidade.Text, DateTime.Parse(data_nasc.Text), email.Text, equipe.Text);
         }
 
         private bool update()
         {
             int jogador_id = Int32.Parse(id.Value);
             return controller().update(jogador_id, cpf.Text, apelido.Text, nome.Text, Int32.Parse(num_camisa.Text), posicao.Text,
-                                       nacionalidade.Text, DateTime.Parse(data_nasc.Text), email.Text);
+                                       nacionalidade.Text, DateTime.Parse(data_nasc.Text), email.Text, equipe.Text);
         }
 
         private JogadorController controller()
         {
             return new JogadorController();
         }
+
+        private void populateDropDown()
+        {
+            EquipeHelper.populate(equipe);
+        }
+
     }
 }

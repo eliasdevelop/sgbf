@@ -21,7 +21,7 @@ namespace SGBF.Views.Jogador
             {
                 Models.Jogador jogador = (Models.Jogador)e.Row.DataItem;
 
-                HyperLink edit = e.Row.Cells[2].Controls[0] as HyperLink;
+                HyperLink edit = e.Row.Cells[3].Controls[0] as HyperLink;
                 edit.NavigateUrl = "~/Views/Jogador/Form.aspx?id=" + jogador.id;
             }
         }
@@ -51,16 +51,8 @@ namespace SGBF.Views.Jogador
 
         protected void Pesquisar_Click(object sender, EventArgs e)
         {
-            int idadeP;
-            if (idade.Text == "")
-            {
-                idadeP = 0;
-            }
-            else
-            {
-                idadeP = Int32.Parse(idade.Text);
-            }
-            JogadoresList.DataSource = controller().find_by(nome.Text, apelido.Text, idadeP);
+            
+            JogadoresList.DataSource = controller().find_by(nome.Text, apelido.Text, equipe.Text);
             JogadoresList.DataBind();
         }
 

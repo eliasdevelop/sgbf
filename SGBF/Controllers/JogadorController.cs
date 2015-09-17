@@ -18,23 +18,24 @@ namespace SGBF.Controllers
             //                            "data_nasc, email, foto, id_equipe, FLOOR(DATEDIFF(DAY, data_nasc, GETDATE()) / 365.25) as idade FROM Jogador").ToList();
         }
 
-        public List<Jogador> find_by(String nome, String apelido, int idade)
+        public List<Jogador> find_by(String nome, String apelido, String equipe)
         {
             var con = db();
 
-            if(nome == "" && apelido == "" && idade == 0)
+            if(nome == "" && apelido == "" && equipe == "")
             {
                 return con.Jogador.ToList();
             }
             else
             {
-                return con.Jogador.Where(Jogador => Jogador.nome.Contains(nome) && Jogador.apelido.Contains(apelido)).ToList();
+                return con.Jogador.Where(Jogador => Jogador.nome.Contains(nome) && Jogador.apelido.Contains(apelido) 
+                                                                                && Jogador.Equipe.nome.Contains(equipe)).ToList();
             }           
         }
 
 
         public bool create(String cpf, String apelido, String nome, int num_camisa, String posicao,
-                           String nacionalidade, DateTime data_nasc, String email )
+                           String nacionalidade, DateTime data_nasc, String email, String id_equipe )
         {
             var con = db();
 
@@ -48,6 +49,14 @@ namespace SGBF.Controllers
             jogador.data_nasc = data_nasc;
             jogador.email = email;
             //jogador.foto = foto;
+            if(id_equipe == "")
+            {
+                jogador.id_equipe = null;
+            }
+            else
+            {
+                jogador.id_equipe = Int32.Parse(id_equipe);
+            }
             con.Jogador.Add(jogador);
 
             int rows = con.SaveChanges();
@@ -63,7 +72,7 @@ namespace SGBF.Controllers
         }
 
         public bool update(int id, String cpf, String apelido, String nome, int num_camisa,
-                           String posicao, String nacionalidade, DateTime data_nasc, String email)
+                           String posicao, String nacionalidade, DateTime data_nasc, String email, String id_equipe)
         {
             var con = db();
 
@@ -77,6 +86,14 @@ namespace SGBF.Controllers
             jogador.data_nasc = data_nasc;
             jogador.email = email;
             //jogador.foto = foto;
+            if(id_equipe == "")
+            {
+                jogador.id_equipe = null;
+            }
+            else
+            {
+                jogador.id_equipe = Int32.Parse(id_equipe);
+            }
 
             int rows = con.SaveChanges();
 

@@ -8,22 +8,22 @@
                 <h3 class="panel-title">Filtro</h3>
             </div>
             <div class="panel-body">
-                <div>
+                <div class="form-group">
                     <asp:Label Text="Nome" runat="server" />
                     <div>
-                        <asp:TextBox runat="server" ID="nome" />
+                        <asp:TextBox runat="server" CssClass="form-control" ID="nome" />
                     </div>
                 </div>
-                <div>
+                <div class="form-group">
                     <asp:Label Text="Apelido" runat="server" />
                     <div>
-                        <asp:TextBox runat="server" ID="apelido" />
+                        <asp:TextBox runat="server" CssClass="form-control" ID="apelido" />
                     </div>
                 </div>
-                <div>
-                    <asp:Label Text="Idade" runat="server" />
+                <div class="form-group">
+                    <asp:Label Text="Equipe" runat="server" />
                     <div>
-                        <asp:TextBox runat="server" ID="idade" />
+                        <asp:TextBox runat="server" CssClass="form-control" ID="equipe" />
                     </div>
                 </div>
                 <br/>
@@ -44,6 +44,7 @@
                     <Columns>
                         <asp:BoundField HeaderText="Nome" DataField="nome" />
                         <asp:BoundField HeaderText="Apelido" DataField="apelido" />
+                        <asp:BoundField HeaderText="Equipe" DataField="equipe.nome" />
                         <asp:HyperLinkField Text="Editar" />
                         <asp:TemplateField>
                             <ItemTemplate>

@@ -10,31 +10,40 @@
             <div class="panel-body">
                 <asp:HiddenField ID="id" runat="server" />
                 
-                <div>
-                    <asp:Label Text="Nome" runat="server" />
-                    <div>
-                        <asp:TextBox runat="server" ID="nome" />
-                        <asp:RequiredFieldValidator CssClass="error-message" runat="server"
-                    ControlToValidate="nome" ErrorMessage="Campo obrigatório" EnableClientScript="true"></asp:RequiredFieldValidator>
-                    </div>    
-                </div> 
-                <div>
-                    <asp:Label Text="Capacidade" runat="server" />
-                    <div>
-                        <asp:TextBox runat="server" ID="capacidade" />
-                        <asp:RequiredFieldValidator CssClass="error-message" runat="server"
-                    ControlToValidate="capacidade" ErrorMessage="Campo obrigatório" EnableClientScript="true"></asp:RequiredFieldValidator>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <asp:Label Text="Nome" runat="server" />
+                            <div>
+                                <asp:TextBox runat="server" ID="nome" CssClass="form-control"  />
+                                <asp:RequiredFieldValidator CssClass="error-message" runat="server"
+                            ControlToValidate="nome" ErrorMessage="Campo obrigatório" EnableClientScript="true"></asp:RequiredFieldValidator>
+                            </div>    
+                        </div> 
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <asp:Label Text="Capacidade" runat="server" />
+                            <div>
+                                <asp:TextBox runat="server" ID="capacidade" CssClass="form-control" />
+                                <asp:RequiredFieldValidator CssClass="error-message" runat="server"
+                            ControlToValidate="capacidade" ErrorMessage="Campo obrigatório" EnableClientScript="true"></asp:RequiredFieldValidator>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div>
-                    <asp:Label Text="Cidade" runat="server" />
-                    <div>
-                        <asp:TextBox runat="server" ID="cidade" />
-                        <asp:RequiredFieldValidator CssClass="error-message" runat="server"
-                    ControlToValidate="cidade" ErrorMessage="Campo obrigatório" EnableClientScript="true"></asp:RequiredFieldValidator>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <asp:Label Text="Cidade" runat="server" />
+                            <div>
+                                <asp:TextBox runat="server" ID="cidade" CssClass="form-control" />
+                                <asp:RequiredFieldValidator CssClass="error-message" runat="server"
+                            ControlToValidate="cidade" ErrorMessage="Campo obrigatório" EnableClientScript="true"></asp:RequiredFieldValidator>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <br />
                 <div>
                     <asp:Button CssClass="btn btn-success" runat="server" Text="Salvar" OnClick="Save_Click" UseSubmitBehavior="true" />
                     <a href="Index.aspx" title="Cancelar" class="btn btn-default">Cancelar</a>
