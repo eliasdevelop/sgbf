@@ -15,6 +15,7 @@
                     <Columns>
                         <asp:BoundField HeaderText="Nome" DataField="nome" />
                         <asp:BoundField HeaderText="Nome Completo" DataField="nome_completo" />
+                        <asp:BoundField HeaderText="Estadio" DataField="estadio.nome" />
                         <asp:HyperLinkField Text="Editar" />
                         <asp:TemplateField>
                             <ItemTemplate>

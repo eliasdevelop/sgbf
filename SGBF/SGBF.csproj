@@ -142,6 +142,7 @@
     <Compile Include="Controllers\EstadioController.cs" />
     <Compile Include="Controllers\JogadorController.cs" />
     <Compile Include="Helpers\EquipeHelper.cs" />
+    <Compile Include="Helpers\EstadioHelper.cs" />
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

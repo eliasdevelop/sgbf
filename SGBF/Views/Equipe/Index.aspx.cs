@@ -21,7 +21,7 @@ namespace SGBF.Views.Equipe
             {
                 Models.Equipe equipe = (Models.Equipe)e.Row.DataItem;
 
-                HyperLink edit = e.Row.Cells[2].Controls[0] as HyperLink;
+                HyperLink edit = e.Row.Cells[3].Controls[0] as HyperLink;
                 edit.NavigateUrl = "~/Views/Equipe/Form.aspx?id=" + equipe.id;
             }
         }

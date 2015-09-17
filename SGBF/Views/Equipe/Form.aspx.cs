@@ -1,5 +1,6 @@
 ﻿using System;
 using SGBF.Controllers;
+using SGBF.Helpers;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,8 @@ namespace SGBF.Views.Equipe
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            populateDropDown();
+
             if (!IsPostBack)
             {
                 String equipe_id = Request.QueryString["id"];
@@ -31,6 +34,7 @@ namespace SGBF.Views.Equipe
                         nome.Text = equipe.nome;
                         nome_completo.Text = equipe.nome_completo;
                         data_fundacao.Text = equipe.data_fundacao.ToString("dd/MM/yyyy");
+                        estadio.Text = equipe.id_estadio.ToString();
                     }
                 }
             }
@@ -56,18 +60,23 @@ namespace SGBF.Views.Equipe
 
         private bool create()
         {
-            return controller().create(nome.Text, nome_completo.Text, DateTime.Parse(data_fundacao.Text));
+            return controller().create(nome.Text, nome_completo.Text, DateTime.Parse(data_fundacao.Text), estadio.Text);
         }
 
         private bool update()
         {
             int equipe_id = Int32.Parse(id.Value);
-            return controller().update(equipe_id, nome.Text, nome_completo.Text, DateTime.Parse(data_fundacao.Text));
+            return controller().update(equipe_id, nome.Text, nome_completo.Text, DateTime.Parse(data_fundacao.Text), estadio.Text);
         }
 
         private EquipeController controller()
         {
             return new EquipeController();
+        }
+
+        private void populateDropDown()
+        {
+            EstadioHelper.populate(estadio);
         }
     }
 }

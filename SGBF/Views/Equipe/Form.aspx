@@ -43,6 +43,18 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="form-group">     
+                                <asp:Label Text="Estadio" runat="server" />
+                                <div>
+                                        <asp:DropDownList ID="estadio" runat="server" CssClass="form-control">
+                                        <asp:ListItem Value="">Selecione</asp:ListItem>
+                                        </asp:DropDownList>              
+                                </div>            
+                            </div>
+                        </div>
+                    </div>
                 </div>
                
                 <div>

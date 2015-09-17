@@ -15,7 +15,7 @@ namespace SGBF.Controllers
             return con.Equipe.ToList();
         }
 
-        public bool create(String nome, String nome_completo, DateTime data_fundacao)
+        public bool create(String nome, String nome_completo, DateTime data_fundacao, String id_estadio)
         {
             var con = db();
 
@@ -24,7 +24,15 @@ namespace SGBF.Controllers
             equipe.nome_completo = nome_completo;
             equipe.data_fundacao = data_fundacao;
             //equipe.escudo = escudo;
-           
+            if (id_estadio == "")
+            {
+                equipe.id_estadio = null;
+            }
+            else
+            {
+                equipe.id_estadio = Int32.Parse(id_estadio);
+            }
+
             con.Equipe.Add(equipe);
 
             int rows = con.SaveChanges();
@@ -39,7 +47,7 @@ namespace SGBF.Controllers
             return con.Equipe.Find(id);
         }
 
-        public bool update(int id, String nome, String nome_completo, DateTime data_fundacao)
+        public bool update(int id, String nome, String nome_completo, DateTime data_fundacao, String id_estadio)
         {
             var con = db();
 
@@ -48,6 +56,14 @@ namespace SGBF.Controllers
             equipe.nome_completo = nome_completo;
             equipe.data_fundacao = data_fundacao;
             //equipe.escudo = escudo;
+            if (id_estadio == "")
+            {
+                equipe.id_estadio = null;
+            }
+            else
+            {
+                equipe.id_estadio = Int32.Parse(id_estadio);
+            }
 
             int rows = con.SaveChanges();
 
