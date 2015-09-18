@@ -37,8 +37,9 @@
             <PropertyRef Name="id_campeonato" />
             <PropertyRef Name="id_equipe" />
           </Key>
-          <Property Name="id_campeonato" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_campeonato" Type="int" Nullable="false" />
           <Property Name="id_equipe" Type="int" Nullable="false" />
+          <Property Name="num_pontuacao" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Estadio">
           <Key>
@@ -235,8 +236,8 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nome" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="divisao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Equipe_Campeonato" Relationship="Self.FK_Equipe_Campeonato_Campeonato" FromRole="Campeonato" ToRole="Equipe_Campeonato" />
           <NavigationProperty Name="Jogo" Relationship="Self.FK_Jogo_Campeonato" FromRole="Campeonato" ToRole="Jogo" />
-          <NavigationProperty Name="Equipe" Relationship="Self.Equipe_Campeonato" FromRole="Campeonato" ToRole="Equipe" />
         </EntityType>
         <EntityType Name="Equipe">
           <Key>
@@ -248,11 +249,22 @@
           <Property Name="data_fundacao" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="escudo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="id_estadio" Type="Int32" />
+          <NavigationProperty Name="Equipe_Campeonato" Relationship="Self.FK_Equipe_Campeonato_Equipe" FromRole="Equipe" ToRole="Equipe_Campeonato" />
           <NavigationProperty Name="Estadio" Relationship="Self.FK_Equipe_Estadio" FromRole="Equipe" ToRole="Estadio" />
           <NavigationProperty Name="Jogador" Relationship="Self.FK_Jogador_Equipe" FromRole="Equipe" ToRole="Jogador" />
           <NavigationProperty Name="Jogo" Relationship="Self.FK_Jogo_EquipeCasa" FromRole="Equipe" ToRole="Jogo" />
           <NavigationProperty Name="Jogo1" Relationship="Self.FK_Jogo_EquipeVisitante" FromRole="Equipe" ToRole="Jogo" />
-          <NavigationProperty Name="Campeonato" Relationship="Self.Equipe_Campeonato" FromRole="Equipe" ToRole="Campeonato" />
+        </EntityType>
+        <EntityType Name="Equipe_Campeonato">
+          <Key>
+            <PropertyRef Name="id_campeonato" />
+            <PropertyRef Name="id_equipe" />
+          </Key>
+          <Property Name="id_campeonato" Type="Int32" Nullable="false" />
+          <Property Name="id_equipe" Type="Int32" Nullable="false" />
+          <Property Name="num_pontuacao" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Campeonato" Relationship="Self.FK_Equipe_Campeonato_Campeonato" FromRole="Equipe_Campeonato" ToRole="Campeonato" />
+          <NavigationProperty Name="Equipe" Relationship="Self.FK_Equipe_Campeonato_Equipe" FromRole="Equipe_Campeonato" ToRole="Equipe" />
         </EntityType>
         <EntityType Name="Estadio">
           <Key>
@@ -309,6 +321,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Equipe_Campeonato_Campeonato">
+          <End Role="Campeonato" Type="Self.Campeonato" Multiplicity="1" />
+          <End Role="Equipe_Campeonato" Type="Self.Equipe_Campeonato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campeonato">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Equipe_Campeonato">
+              <PropertyRef Name="id_campeonato" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Jogo_Campeonato">
           <End Role="Campeonato" Type="Self.Campeonato" Multiplicity="1" />
           <End Role="Jogo" Type="Self.Jogo" Multiplicity="*" />
@@ -318,6 +342,18 @@
             </Principal>
             <Dependent Role="Jogo">
               <PropertyRef Name="id_campeonato" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Equipe_Campeonato_Equipe">
+          <End Role="Equipe" Type="Self.Equipe" Multiplicity="1" />
+          <End Role="Equipe_Campeonato" Type="Self.Equipe_Campeonato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipe">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Equipe_Campeonato">
+              <PropertyRef Name="id_equipe" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -369,14 +405,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Equipe_Campeonato">
-          <End Role="Campeonato" Type="Self.Campeonato" Multiplicity="*" />
-          <End Role="Equipe" Type="Self.Equipe" Multiplicity="*" />
-        </Association>
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Arbitro" EntityType="Self.Arbitro" />
           <EntitySet Name="Campeonato" EntityType="Self.Campeonato" />
           <EntitySet Name="Equipe" EntityType="Self.Equipe" />
+          <EntitySet Name="Equipe_Campeonato" EntityType="Self.Equipe_Campeonato" />
           <EntitySet Name="Estadio" EntityType="Self.Estadio" />
           <EntitySet Name="Jogador" EntityType="Self.Jogador" />
           <EntitySet Name="Jogo" EntityType="Self.Jogo" />
@@ -384,9 +417,17 @@
             <End Role="Arbitro" EntitySet="Arbitro" />
             <End Role="Jogo" EntitySet="Jogo" />
           </AssociationSet>
+          <AssociationSet Name="FK_Equipe_Campeonato_Campeonato" Association="Self.FK_Equipe_Campeonato_Campeonato">
+            <End Role="Campeonato" EntitySet="Campeonato" />
+            <End Role="Equipe_Campeonato" EntitySet="Equipe_Campeonato" />
+          </AssociationSet>
           <AssociationSet Name="FK_Jogo_Campeonato" Association="Self.FK_Jogo_Campeonato">
             <End Role="Campeonato" EntitySet="Campeonato" />
             <End Role="Jogo" EntitySet="Jogo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Equipe_Campeonato_Equipe" Association="Self.FK_Equipe_Campeonato_Equipe">
+            <End Role="Equipe" EntitySet="Equipe" />
+            <End Role="Equipe_Campeonato" EntitySet="Equipe_Campeonato" />
           </AssociationSet>
           <AssociationSet Name="FK_Equipe_Estadio" Association="Self.FK_Equipe_Estadio">
             <End Role="Estadio" EntitySet="Estadio" />
@@ -403,10 +444,6 @@
           <AssociationSet Name="FK_Jogo_EquipeVisitante" Association="Self.FK_Jogo_EquipeVisitante">
             <End Role="Equipe" EntitySet="Equipe" />
             <End Role="Jogo" EntitySet="Jogo" />
-          </AssociationSet>
-          <AssociationSet Name="Equipe_Campeonato" Association="Self.Equipe_Campeonato">
-            <End Role="Campeonato" EntitySet="Campeonato" />
-            <End Role="Equipe" EntitySet="Equipe" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -442,6 +479,15 @@
                 <ScalarProperty Name="data_fundacao" ColumnName="data_fundacao" />
                 <ScalarProperty Name="escudo" ColumnName="escudo" />
                 <ScalarProperty Name="id_estadio" ColumnName="id_estadio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Equipe_Campeonato">
+            <EntityTypeMapping TypeName="SGBFModel.Equipe_Campeonato">
+              <MappingFragment StoreEntitySet="Equipe_Campeonato">
+                <ScalarProperty Name="id_campeonato" ColumnName="id_campeonato" />
+                <ScalarProperty Name="id_equipe" ColumnName="id_equipe" />
+                <ScalarProperty Name="num_pontuacao" ColumnName="num_pontuacao" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -485,14 +531,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="Equipe_Campeonato" TypeName="SGBFModel.Equipe_Campeonato" StoreEntitySet="Equipe_Campeonato">
-            <EndProperty Name="Campeonato">
-              <ScalarProperty Name="id" ColumnName="id_campeonato" />
-            </EndProperty>
-            <EndProperty Name="Equipe">
-              <ScalarProperty Name="id" ColumnName="id_equipe" />
-            </EndProperty>
-          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

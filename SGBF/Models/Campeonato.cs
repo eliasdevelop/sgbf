@@ -17,8 +17,8 @@ namespace SGBF.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Campeonato()
         {
+            this.Equipe_Campeonato = new HashSet<Equipe_Campeonato>();
             this.Jogo = new HashSet<Jogo>();
-            this.Equipe = new HashSet<Equipe>();
         }
     
         public int id { get; set; }
@@ -26,8 +26,8 @@ namespace SGBF.Models
         public string divisao { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Jogo> Jogo { get; set; }
+        public virtual ICollection<Equipe_Campeonato> Equipe_Campeonato { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Equipe> Equipe { get; set; }
+        public virtual ICollection<Jogo> Jogo { get; set; }
     }
 }

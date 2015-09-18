@@ -15,6 +15,7 @@
                     <Columns>
                         <asp:BoundField HeaderText="Nome" DataField="nome" />
                         <asp:BoundField HeaderText="Divisão" DataField="divisao" />
+                        <asp:HyperLinkField Text="Times" />
                         <asp:HyperLinkField Text="Editar" />
                         <asp:TemplateField>
                             <ItemTemplate>

@@ -21,7 +21,9 @@ namespace SGBF.Views.Campeonato
             {
                 Models.Campeonato campeonato = (Models.Campeonato)e.Row.DataItem;
 
-                HyperLink edit = e.Row.Cells[2].Controls[0] as HyperLink;
+                HyperLink times = e.Row.Cells[2].Controls[0] as HyperLink;
+                HyperLink edit = e.Row.Cells[3].Controls[0] as HyperLink;
+                times.NavigateUrl = "~/Views/Campeonato/Times.aspx?id=" + campeonato.id;
                 edit.NavigateUrl = "~/Views/Campeonato/Form.aspx?id=" + campeonato.id;
             }
         }

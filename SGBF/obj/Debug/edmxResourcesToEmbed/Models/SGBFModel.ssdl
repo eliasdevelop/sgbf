@@ -32,8 +32,9 @@
       <PropertyRef Name="id_campeonato" />
       <PropertyRef Name="id_equipe" />
     </Key>
-    <Property Name="id_campeonato" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_campeonato" Type="int" Nullable="false" />
     <Property Name="id_equipe" Type="int" Nullable="false" />
+    <Property Name="num_pontuacao" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Estadio">
     <Key>

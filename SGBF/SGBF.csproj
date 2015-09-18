@@ -90,17 +90,11 @@
     </Content>
     <Content Include="packages.config" />
     <Content Include="Assets\Bootstrap\Scripts\jquery-1.9.1.min.map" />
-    <EntityDeploy Include="Models\SGBFModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SGBFModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\SGBFModel.edmx.diagram">
-      <DependentUpon>SGBFModel.edmx</DependentUpon>
-    </Content>
     <Content Include="Views\Arbitro\Form.aspx" />
     <Content Include="Views\Arbitro\Index.aspx" />
     <Content Include="Views\Campeonato\Form.aspx" />
     <Content Include="Views\Campeonato\Index.aspx" />
+    <Content Include="Views\Campeonato\Times.aspx" />
     <Content Include="Views\Equipe\Form.aspx" />
     <Content Include="Views\Equipe\Index.aspx" />
     <Content Include="Views\Estadio\Form.aspx" />
@@ -108,6 +102,13 @@
     <Content Include="Views\Jogador\Form.aspx" />
     <Content Include="Views\Jogador\Index.aspx" />
     <Content Include="Views\MasterPage\App.Master" />
+    <EntityDeploy Include="Models\SGBFModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SGBFModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\SGBFModel.edmx.diagram">
+      <DependentUpon>SGBFModel.edmx</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -138,9 +139,11 @@
     <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\ArbitroController.cs" />
     <Compile Include="Controllers\CampeonatoController.cs" />
+    <Compile Include="Controllers\EquipeCampeonatoController.cs" />
     <Compile Include="Controllers\EquipeController.cs" />
     <Compile Include="Controllers\EstadioController.cs" />
     <Compile Include="Controllers\JogadorController.cs" />
+    <Compile Include="Helpers\CampeonatoHelper.cs" />
     <Compile Include="Helpers\EquipeHelper.cs" />
     <Compile Include="Helpers\EstadioHelper.cs" />
     <Compile Include="index.aspx.cs">
@@ -157,6 +160,9 @@
       <DependentUpon>SGBFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Equipe.cs">
+      <DependentUpon>SGBFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Equipe_Campeonato.cs">
       <DependentUpon>SGBFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Estadio.cs">
@@ -211,6 +217,13 @@
     </Compile>
     <Compile Include="Views\Campeonato\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Campeonato\Times.aspx.cs">
+      <DependentUpon>Times.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Campeonato\Times.aspx.designer.cs">
+      <DependentUpon>Times.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Equipe\Form.aspx.cs">
       <DependentUpon>Form.aspx</DependentUpon>

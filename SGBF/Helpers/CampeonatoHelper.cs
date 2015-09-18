@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace SGBF.Helpers
 {
-    public class EquipeHelper
+    public class CampeonatoHelper
     {
         public static void populate(DropDownList element)
         {
@@ -22,15 +22,14 @@ namespace SGBF.Helpers
             }
         }
 
-
-        private static EquipeController controller()
+        private static CampeonatoController controller()
         {
-            return new EquipeController();
+            return new CampeonatoController();
         }
 
-        public static Equipe search(String id_equipe)
+        public static Campeonato search(String id_campeonato)
         {
-            int id = Int32.Parse(id_equipe);
+            int id = Int32.Parse(id_campeonato);
             return controller().edit(id);
         }
     }

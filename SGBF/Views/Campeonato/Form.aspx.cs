@@ -22,7 +22,7 @@ namespace SGBF.Views.Campeonato
 
                     if (campeonato == null)
                     {
-                        Session["error_message"] = "Arbitro não encontrado";
+                        Session["error_message"] = "Campeonato não encontrado";
                         Response.Redirect("Index.aspx");
                     }
                     else
