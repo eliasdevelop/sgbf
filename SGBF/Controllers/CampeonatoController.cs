@@ -53,12 +53,21 @@ namespace SGBF.Controllers
         public bool delete(int id)
         {
             var con = db();
+            int rows = 0;
 
-            Campeonato campeonato = con.Campeonato.Find(id);
-            con.Campeonato.Remove(campeonato);
+            try
+            {
+                Campeonato campeonato = con.Campeonato.Find(id);
+                con.Campeonato.Remove(campeonato);
 
-            int rows = con.SaveChanges();
+                rows = con.SaveChanges();
 
+                return rows.Equals(1);
+            }
+            catch (Exception)
+            {
+            }
+            
             return rows.Equals(1);
         }
     }

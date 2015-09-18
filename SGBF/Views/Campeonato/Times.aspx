@@ -22,22 +22,26 @@
                     </Columns>
                 </asp:GridView>
             </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">     
-                        <asp:Label Text="Equipe" runat="server" />
-                        <div>
-                            <asp:DropDownList ID="equipe" runat="server" CssClass="form-control">
-                            <asp:ListItem Value="">Selecione</asp:ListItem>
-                            </asp:DropDownList>              
-                        </div>            
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <asp:Button CssClass="btn btn-success" runat="server" Text="Add Time" OnClick="Save_Click" UseSubmitBehavior="true" />
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">     
+                    <asp:Label Text="Equipe" runat="server" />
+                    <div>
+                        <asp:DropDownList ID="equipe" runat="server" CssClass="form-control">
+                        <asp:ListItem Value="">Selecione</asp:ListItem>
+                        </asp:DropDownList>              
+                    </div>            
                 </div>
             </div>
         </div>
-       
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group"> 
+                    <asp:Button CssClass="btn btn-success" runat="server" Text="Add Time" OnClick="Save_Click" UseSubmitBehavior="true" />
+                    <a href="/Views/Campeonato/Index.aspx" title="Voltar" class="btn btn-default">Voltar</a>
+                </div>
+            </div>  
+        </div>
     </div>
 </asp:Content>

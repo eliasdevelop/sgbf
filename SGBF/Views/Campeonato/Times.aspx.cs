@@ -37,18 +37,20 @@ namespace SGBF.Views.Campeonato
             String id_campeonato = Request.QueryString["id"];
 
             bool saved;
-
-            saved = create();
-
-            if (saved)
+            if(!(equipe.Text == ""))
             {
-                Session["flash_message"] = "Equipe associada ao campeonato com sucesso";
-                Response.Redirect("~/Views/Campeonato/Times.aspx?id=" + id_campeonato);
-            }
-            else
-            {
-                Session["error_message"] = "Falha ao associar equipe, tente novamente.";
-            }
+                saved = create();
+
+                if (saved)
+                {
+                    Session["flash_message"] = "Equipe associada ao campeonato com sucesso";
+                    Response.Redirect("~/Views/Campeonato/Times.aspx?id=" + id_campeonato);
+                }
+                else
+                {
+                    Session["error_message"] = "Falha ao associar equipe, tente novamente.";
+                }
+            }     
         }
 
         private bool create()
