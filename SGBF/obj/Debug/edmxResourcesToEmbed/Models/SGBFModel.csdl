@@ -82,8 +82,8 @@
     <Property Name="id_equipe_visitante" Type="Int32" Nullable="false" />
     <Property Name="id_arbitro" Type="Int32" Nullable="false" />
     <Property Name="id_campeonato" Type="Int32" Nullable="false" />
-    <Property Name="num_gold_casa" Type="Int32" Nullable="false" />
-    <Property Name="num_gol_visitante" Type="Int32" Nullable="false" />
+    <Property Name="num_gol_casa" Type="Int32" />
+    <Property Name="num_gol_visitante" Type="Int32" />
     <NavigationProperty Name="Arbitro" Relationship="Self.FK_Jogo_Arbitro" FromRole="Jogo" ToRole="Arbitro" />
     <NavigationProperty Name="Campeonato" Relationship="Self.FK_Jogo_Campeonato" FromRole="Jogo" ToRole="Campeonato" />
     <NavigationProperty Name="Equipe" Relationship="Self.FK_Jogo_EquipeCasa" FromRole="Jogo" ToRole="Equipe" />

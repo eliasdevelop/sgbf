@@ -70,8 +70,8 @@
     <Property Name="id_equipe_visitante" Type="int" Nullable="false" />
     <Property Name="id_arbitro" Type="int" Nullable="false" />
     <Property Name="id_campeonato" Type="int" Nullable="false" />
-    <Property Name="num_gold_casa" Type="int" Nullable="false" />
-    <Property Name="num_gol_visitante" Type="int" Nullable="false" />
+    <Property Name="num_gol_casa" Type="int" />
+    <Property Name="num_gol_visitante" Type="int" />
   </EntityType>
   <Association Name="FK_Equipe_Campeonato_Campeonato">
     <End Role="Campeonato" Type="Self.Campeonato" Multiplicity="1" />

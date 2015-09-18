@@ -22,6 +22,14 @@ namespace SGBF.Helpers
             }
         }
 
+        public static void populate_by_camp(DropDownList element, int id_campeonato)
+        {      
+            element.DataSource = controller().find_by_campeonato(id_campeonato);
+            element.AppendDataBoundItems = true;
+            element.DataTextField = "nome";
+            element.DataValueField = "id";
+            element.DataBind();       
+        }
 
         private static EquipeController controller()
         {

@@ -15,6 +15,14 @@ namespace SGBF.Controllers
             return con.Equipe.ToList();
         }
 
+        public List<Equipe> find_by_campeonato(int id_campeonato)
+        {
+            var con = db();
+
+            return con.Equipe.SqlQuery("SELECT e.id, e.nome, e.nome_completo, e.data_fundacao, e.escudo, e.id_estadio FROM Equipe as e JOIN Equipe_Campeonato as ec ON e.id = ec.id_equipe WHERE id_campeonato = " + id_campeonato ).ToList();
+       
+        }
+
         public bool create(String nome, String nome_completo, DateTime data_fundacao, String id_estadio)
         {
             var con = db();

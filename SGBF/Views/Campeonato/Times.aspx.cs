@@ -14,7 +14,6 @@ namespace SGBF.Views.Campeonato
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (!IsPostBack)
             {
                 loadTimes();

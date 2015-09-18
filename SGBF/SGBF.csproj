@@ -101,6 +101,9 @@
     <Content Include="Views\Estadio\Index.aspx" />
     <Content Include="Views\Jogador\Form.aspx" />
     <Content Include="Views\Jogador\Index.aspx" />
+    <Content Include="Views\Jogo\Form.aspx" />
+    <Content Include="Views\Jogo\Index.aspx" />
+    <Content Include="Views\Jogo\Placar.aspx" />
     <Content Include="Views\MasterPage\App.Master" />
     <EntityDeploy Include="Models\SGBFModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -143,7 +146,10 @@
     <Compile Include="Controllers\EquipeController.cs" />
     <Compile Include="Controllers\EstadioController.cs" />
     <Compile Include="Controllers\JogadorController.cs" />
+    <Compile Include="Controllers\JogoController.cs" />
+    <Compile Include="Helpers\ArbitroHelper.cs" />
     <Compile Include="Helpers\CampeonatoHelper.cs" />
+    <Compile Include="Helpers\EquipeCampeonatoHelper.cs" />
     <Compile Include="Helpers\EquipeHelper.cs" />
     <Compile Include="Helpers\EstadioHelper.cs" />
     <Compile Include="index.aspx.cs">
@@ -266,6 +272,27 @@
     </Compile>
     <Compile Include="Views\Jogador\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Jogo\Form.aspx.cs">
+      <DependentUpon>Form.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Jogo\Form.aspx.designer.cs">
+      <DependentUpon>Form.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Jogo\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Jogo\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Jogo\Placar.aspx.cs">
+      <DependentUpon>Placar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Jogo\Placar.aspx.designer.cs">
+      <DependentUpon>Placar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\MasterPage\App.Master.cs">
       <DependentUpon>App.Master</DependentUpon>

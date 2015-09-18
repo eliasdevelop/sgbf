@@ -19,8 +19,8 @@ namespace SGBF.Models
         public int id_equipe_visitante { get; set; }
         public int id_arbitro { get; set; }
         public int id_campeonato { get; set; }
-        public int num_gold_casa { get; set; }
-        public int num_gol_visitante { get; set; }
+        public Nullable<int> num_gol_casa { get; set; }
+        public Nullable<int> num_gol_visitante { get; set; }
     
         public virtual Arbitro Arbitro { get; set; }
         public virtual Campeonato Campeonato { get; set; }

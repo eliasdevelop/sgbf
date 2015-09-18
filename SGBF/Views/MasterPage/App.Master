@@ -49,6 +49,11 @@
                             <i class="fa fa-pencil-square-o"></i> Campeonatos
                         </a> 
                     </li>
+                    <li>
+                        <a href="/Views/Jogo/Index.aspx"> 
+                            <i class="fa fa-pencil-square-o"></i> Jogos
+                        </a> 
+                    </li>
                 </ul>
             </div>
         </div>

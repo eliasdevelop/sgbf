@@ -47,6 +47,19 @@ namespace SGBF.Controllers
             return rows.Equals(1);
         }
 
+        public bool update(int id_equipe, int id_campeonato, int pontuacao)
+        {
+            var con = db();
+
+            Equipe_Campeonato equipe_camp = con.Equipe_Campeonato.Find(id_campeonato, id_equipe);
+            equipe_camp.num_pontuacao = pontuacao + equipe_camp.num_pontuacao;
+
+            int rows = con.SaveChanges();
+
+            return rows.Equals(1);
+        }
+
+
         public bool delete(int id_campeonato, int id_equipe)
         {
             var con = db();

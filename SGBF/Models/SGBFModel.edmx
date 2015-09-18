@@ -75,8 +75,8 @@
           <Property Name="id_equipe_visitante" Type="int" Nullable="false" />
           <Property Name="id_arbitro" Type="int" Nullable="false" />
           <Property Name="id_campeonato" Type="int" Nullable="false" />
-          <Property Name="num_gold_casa" Type="int" Nullable="false" />
-          <Property Name="num_gol_visitante" Type="int" Nullable="false" />
+          <Property Name="num_gol_casa" Type="int" />
+          <Property Name="num_gol_visitante" Type="int" />
         </EntityType>
         <Association Name="FK_Equipe_Campeonato_Campeonato">
           <End Role="Campeonato" Type="Self.Campeonato" Multiplicity="1" />
@@ -302,8 +302,8 @@
           <Property Name="id_equipe_visitante" Type="Int32" Nullable="false" />
           <Property Name="id_arbitro" Type="Int32" Nullable="false" />
           <Property Name="id_campeonato" Type="Int32" Nullable="false" />
-          <Property Name="num_gold_casa" Type="Int32" Nullable="false" />
-          <Property Name="num_gol_visitante" Type="Int32" Nullable="false" />
+          <Property Name="num_gol_casa" Type="Int32" />
+          <Property Name="num_gol_visitante" Type="Int32" />
           <NavigationProperty Name="Arbitro" Relationship="Self.FK_Jogo_Arbitro" FromRole="Jogo" ToRole="Arbitro" />
           <NavigationProperty Name="Campeonato" Relationship="Self.FK_Jogo_Campeonato" FromRole="Jogo" ToRole="Campeonato" />
           <NavigationProperty Name="Equipe" Relationship="Self.FK_Jogo_EquipeCasa" FromRole="Jogo" ToRole="Equipe" />
@@ -526,7 +526,7 @@
                 <ScalarProperty Name="id_equipe_visitante" ColumnName="id_equipe_visitante" />
                 <ScalarProperty Name="id_arbitro" ColumnName="id_arbitro" />
                 <ScalarProperty Name="id_campeonato" ColumnName="id_campeonato" />
-                <ScalarProperty Name="num_gold_casa" ColumnName="num_gold_casa" />
+                <ScalarProperty Name="num_gol_casa" ColumnName="num_gol_casa" />
                 <ScalarProperty Name="num_gol_visitante" ColumnName="num_gol_visitante" />
               </MappingFragment>
             </EntityTypeMapping>
