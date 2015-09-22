@@ -35,6 +35,7 @@ namespace SGBF.Views.Equipe
                         nome_completo.Text = equipe.nome_completo;
                         data_fundacao.Text = equipe.data_fundacao.ToString("dd/MM/yyyy");
                         estadio.Text = equipe.id_estadio.ToString();
+                        treinador.Text = equipe.id_treinador.ToString();
                     }
                 }
             }
@@ -60,13 +61,13 @@ namespace SGBF.Views.Equipe
 
         private bool create()
         {
-            return controller().create(nome.Text, nome_completo.Text, DateTime.Parse(data_fundacao.Text), estadio.Text);
+            return controller().create(nome.Text, nome_completo.Text, DateTime.Parse(data_fundacao.Text), estadio.Text, treinador.Text);
         }
 
         private bool update()
         {
             int equipe_id = Int32.Parse(id.Value);
-            return controller().update(equipe_id, nome.Text, nome_completo.Text, DateTime.Parse(data_fundacao.Text), estadio.Text);
+            return controller().update(equipe_id, nome.Text, nome_completo.Text, DateTime.Parse(data_fundacao.Text), estadio.Text, treinador.Text);
         }
 
         private EquipeController controller()
@@ -77,6 +78,7 @@ namespace SGBF.Views.Equipe
         private void populateDropDown()
         {
             EstadioHelper.populate(estadio);
+            TreinadorHelper.populate(treinador);
         }
     }
 }

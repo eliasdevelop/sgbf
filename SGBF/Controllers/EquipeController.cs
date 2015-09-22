@@ -19,11 +19,11 @@ namespace SGBF.Controllers
         {
             var con = db();
 
-            return con.Equipe.SqlQuery("SELECT e.id, e.nome, e.nome_completo, e.data_fundacao, e.escudo, e.id_estadio FROM Equipe as e JOIN Equipe_Campeonato as ec ON e.id = ec.id_equipe WHERE id_campeonato = " + id_campeonato ).ToList();
+            return con.Equipe.SqlQuery("SELECT e.id, e.nome, e.nome_completo, e.data_fundacao, e.escudo, e.id_estadio, e.id_treinador FROM Equipe as e JOIN Equipe_Campeonato as ec ON e.id = ec.id_equipe WHERE id_campeonato = {0}", id_campeonato).ToList();
        
         }
 
-        public bool create(String nome, String nome_completo, DateTime data_fundacao, String id_estadio)
+        public bool create(String nome, String nome_completo, DateTime data_fundacao, String id_estadio, String id_treinador)
         {
             var con = db();
 
@@ -41,6 +41,15 @@ namespace SGBF.Controllers
                 equipe.id_estadio = Int32.Parse(id_estadio);
             }
 
+            if (id_treinador == "")
+            {
+                equipe.id_treinador = null;
+            }
+            else
+            {
+                equipe.id_treinador = Int32.Parse(id_treinador);
+            }
+
             con.Equipe.Add(equipe);
 
             int rows = con.SaveChanges();
@@ -55,7 +64,7 @@ namespace SGBF.Controllers
             return con.Equipe.Find(id);
         }
 
-        public bool update(int id, String nome, String nome_completo, DateTime data_fundacao, String id_estadio)
+        public bool update(int id, String nome, String nome_completo, DateTime data_fundacao, String id_estadio, String id_treinador)
         {
             var con = db();
 
@@ -71,6 +80,14 @@ namespace SGBF.Controllers
             else
             {
                 equipe.id_estadio = Int32.Parse(id_estadio);
+            }
+            if (id_treinador == "")
+            {
+                equipe.id_treinador = null;
+            }
+            else
+            {
+                equipe.id_treinador = Int32.Parse(id_treinador);
             }
 
             int rows = con.SaveChanges();

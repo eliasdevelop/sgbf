@@ -18,16 +18,23 @@ namespace SGBF.Controllers
         public bool create(String nome, float salario)
         {
             var con = db();
+            int rows = 0;
 
             Treinador treinador = new Treinador();
             treinador.nome = nome;
             treinador.salario = salario;
 
-            con.Treinador.Add(treinador);
+            if (exists(nome)){
+                return rows.Equals(1) ;
+            }
+            else
+            {
+                con.Treinador.Add(treinador);
 
-            int rows = con.SaveChanges();
+                rows = con.SaveChanges();
 
-            return rows.Equals(1);
+                return rows.Equals(1);
+            }     
         }
 
         public Treinador edit(int id)
@@ -60,6 +67,23 @@ namespace SGBF.Controllers
             int rows = con.SaveChanges();
 
             return rows.Equals(1);
+        }
+
+        private bool exists(String nome)
+        {
+            var con = db();
+
+            List<Treinador> treinadores = con.Treinador.SqlQuery("SELECT * FROM Treinador WHERE nome = {0}", nome).ToList();
+           
+            if(treinadores.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+           
         }
     }
 }

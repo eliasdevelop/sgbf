@@ -56,7 +56,20 @@
                         </div>
                     </div>
                 </div>
-               
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="form-group">     
+                                <asp:Label Text="Treinador" runat="server" />
+                                <div>
+                                        <asp:DropDownList ID="treinador" runat="server" CssClass="form-control">
+                                        <asp:ListItem Value="">Selecione</asp:ListItem>
+                                        </asp:DropDownList>              
+                                </div>            
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div>
                     <asp:Button CssClass="btn btn-success" runat="server" Text="Salvar" OnClick="Save_Click" UseSubmitBehavior="true" />
                     <a href="Index.aspx" title="Cancelar" class="btn btn-default">Cancelar</a>
