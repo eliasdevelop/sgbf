@@ -26,6 +26,7 @@
     <Property Name="data_fundacao" Type="date" Nullable="false" />
     <Property Name="escudo" Type="image" />
     <Property Name="id_estadio" Type="int" />
+    <Property Name="id_treinador" Type="int" />
   </EntityType>
   <EntityType Name="Equipe_Campeonato">
     <Key>
@@ -73,6 +74,14 @@
     <Property Name="num_gol_casa" Type="int" />
     <Property Name="num_gol_visitante" Type="int" />
   </EntityType>
+  <EntityType Name="Treinador">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="salario" Type="float" Nullable="false" />
+  </EntityType>
   <Association Name="FK_Equipe_Campeonato_Campeonato">
     <End Role="Campeonato" Type="Self.Campeonato" Multiplicity="1" />
     <End Role="Equipe_Campeonato" Type="Self.Equipe_Campeonato" Multiplicity="*" />
@@ -106,6 +115,18 @@
       </Principal>
       <Dependent Role="Equipe">
         <PropertyRef Name="id_estadio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Equipe_Treinador">
+    <End Role="Treinador" Type="Self.Treinador" Multiplicity="0..1" />
+    <End Role="Equipe" Type="Self.Equipe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Treinador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Equipe">
+        <PropertyRef Name="id_treinador" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -177,6 +198,7 @@
     <EntitySet Name="Estadio" EntityType="Self.Estadio" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Jogador" EntityType="Self.Jogador" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Jogo" EntityType="Self.Jogo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Treinador" EntityType="Self.Treinador" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Equipe_Campeonato_Campeonato" Association="Self.FK_Equipe_Campeonato_Campeonato">
       <End Role="Campeonato" EntitySet="Campeonato" />
       <End Role="Equipe_Campeonato" EntitySet="Equipe_Campeonato" />
@@ -187,6 +209,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_Equipe_Estadio" Association="Self.FK_Equipe_Estadio">
       <End Role="Estadio" EntitySet="Estadio" />
+      <End Role="Equipe" EntitySet="Equipe" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Equipe_Treinador" Association="Self.FK_Equipe_Treinador">
+      <End Role="Treinador" EntitySet="Treinador" />
       <End Role="Equipe" EntitySet="Equipe" />
     </AssociationSet>
     <AssociationSet Name="FK_Jogador_Equipe" Association="Self.FK_Jogador_Equipe">

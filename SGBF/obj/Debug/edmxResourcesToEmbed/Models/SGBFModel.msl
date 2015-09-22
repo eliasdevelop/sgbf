@@ -28,6 +28,7 @@
           <ScalarProperty Name="data_fundacao" ColumnName="data_fundacao" />
           <ScalarProperty Name="escudo" ColumnName="escudo" />
           <ScalarProperty Name="id_estadio" ColumnName="id_estadio" />
+          <ScalarProperty Name="id_treinador" ColumnName="id_treinador" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -77,6 +78,15 @@
           <ScalarProperty Name="id_campeonato" ColumnName="id_campeonato" />
           <ScalarProperty Name="num_gol_casa" ColumnName="num_gol_casa" />
           <ScalarProperty Name="num_gol_visitante" ColumnName="num_gol_visitante" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Treinador">
+      <EntityTypeMapping TypeName="SGBFModel.Treinador">
+        <MappingFragment StoreEntitySet="Treinador">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="salario" ColumnName="salario" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -35,6 +35,11 @@
                         </a> 
                     </li>
                     <li>
+                        <a href="/Views/Treinador/Index.aspx"> 
+                            <i class="fa fa-pencil-square-o"></i> Treinadores
+                        </a> 
+                    </li>
+                    <li>
                         <a href="/Views/Estadio/Index.aspx"> 
                             <i class="fa fa-pencil-square-o"></i> Estadios
                         </a> 

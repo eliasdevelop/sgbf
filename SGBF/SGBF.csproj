@@ -136,6 +136,8 @@
     <Content Include="Assets\Bootstrap\Scripts\bootstrap.min.js" />
     <Content Include="Assets\Bootstrap\Scripts\jquery-1.9.1.js" />
     <Content Include="Assets\Bootstrap\Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Views\Treinador\Form.aspx" />
+    <Content Include="Views\Treinador\Index.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -147,11 +149,13 @@
     <Compile Include="Controllers\EstadioController.cs" />
     <Compile Include="Controllers\JogadorController.cs" />
     <Compile Include="Controllers\JogoController.cs" />
+    <Compile Include="Controllers\TreinadorController.cs" />
     <Compile Include="Helpers\ArbitroHelper.cs" />
     <Compile Include="Helpers\CampeonatoHelper.cs" />
     <Compile Include="Helpers\EquipeCampeonatoHelper.cs" />
     <Compile Include="Helpers\EquipeHelper.cs" />
     <Compile Include="Helpers\EstadioHelper.cs" />
+    <Compile Include="Helpers\TreinadorHelper.cs" />
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -194,6 +198,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SGBFModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Treinador.cs">
+      <DependentUpon>SGBFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Arbitro\Form.aspx.cs">
@@ -300,6 +307,20 @@
     </Compile>
     <Compile Include="Views\MasterPage\App.Master.designer.cs">
       <DependentUpon>App.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Treinador\Form.aspx.cs">
+      <DependentUpon>Form.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Treinador\Form.aspx.designer.cs">
+      <DependentUpon>Form.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Treinador\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Treinador\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

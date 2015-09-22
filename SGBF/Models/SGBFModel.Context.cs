@@ -32,5 +32,6 @@ namespace SGBF.Models
         public virtual DbSet<Estadio> Estadio { get; set; }
         public virtual DbSet<Jogador> Jogador { get; set; }
         public virtual DbSet<Jogo> Jogo { get; set; }
+        public virtual DbSet<Treinador> Treinador { get; set; }
     }
 }

@@ -29,8 +29,10 @@
     <Property Name="data_fundacao" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="escudo" Type="Binary" MaxLength="Max" FixedLength="false" />
     <Property Name="id_estadio" Type="Int32" />
+    <Property Name="id_treinador" Type="Int32" />
     <NavigationProperty Name="Equipe_Campeonato" Relationship="Self.FK_Equipe_Campeonato_Equipe" FromRole="Equipe" ToRole="Equipe_Campeonato" />
     <NavigationProperty Name="Estadio" Relationship="Self.FK_Equipe_Estadio" FromRole="Equipe" ToRole="Estadio" />
+    <NavigationProperty Name="Treinador" Relationship="Self.FK_Equipe_Treinador" FromRole="Equipe" ToRole="Treinador" />
     <NavigationProperty Name="Jogador" Relationship="Self.FK_Jogador_Equipe" FromRole="Equipe" ToRole="Jogador" />
     <NavigationProperty Name="Jogo" Relationship="Self.FK_Jogo_EquipeCasa" FromRole="Equipe" ToRole="Jogo" />
     <NavigationProperty Name="Jogo1" Relationship="Self.FK_Jogo_EquipeVisitante" FromRole="Equipe" ToRole="Jogo" />
@@ -88,6 +90,15 @@
     <NavigationProperty Name="Campeonato" Relationship="Self.FK_Jogo_Campeonato" FromRole="Jogo" ToRole="Campeonato" />
     <NavigationProperty Name="Equipe" Relationship="Self.FK_Jogo_EquipeCasa" FromRole="Jogo" ToRole="Equipe" />
     <NavigationProperty Name="Equipe1" Relationship="Self.FK_Jogo_EquipeVisitante" FromRole="Jogo" ToRole="Equipe" />
+  </EntityType>
+  <EntityType Name="Treinador">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="salario" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Equipe" Relationship="Self.FK_Equipe_Treinador" FromRole="Treinador" ToRole="Equipe" />
   </EntityType>
   <Association Name="FK_Jogo_Arbitro">
     <End Role="Arbitro" Type="Self.Arbitro" Multiplicity="1" />
@@ -149,6 +160,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Equipe_Treinador">
+    <End Role="Treinador" Type="Self.Treinador" Multiplicity="0..1" />
+    <End Role="Equipe" Type="Self.Equipe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Treinador">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Equipe">
+        <PropertyRef Name="id_treinador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Jogador_Equipe">
     <End Role="Equipe" Type="Self.Equipe" Multiplicity="0..1" />
     <End Role="Jogador" Type="Self.Jogador" Multiplicity="*" />
@@ -193,6 +216,7 @@
     <EntitySet Name="Estadio" EntityType="Self.Estadio" />
     <EntitySet Name="Jogador" EntityType="Self.Jogador" />
     <EntitySet Name="Jogo" EntityType="Self.Jogo" />
+    <EntitySet Name="Treinador" EntityType="Self.Treinador" />
     <AssociationSet Name="FK_Jogo_Arbitro" Association="Self.FK_Jogo_Arbitro">
       <End Role="Arbitro" EntitySet="Arbitro" />
       <End Role="Jogo" EntitySet="Jogo" />
@@ -211,6 +235,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_Equipe_Estadio" Association="Self.FK_Equipe_Estadio">
       <End Role="Estadio" EntitySet="Estadio" />
+      <End Role="Equipe" EntitySet="Equipe" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Equipe_Treinador" Association="Self.FK_Equipe_Treinador">
+      <End Role="Treinador" EntitySet="Treinador" />
       <End Role="Equipe" EntitySet="Equipe" />
     </AssociationSet>
     <AssociationSet Name="FK_Jogador_Equipe" Association="Self.FK_Jogador_Equipe">

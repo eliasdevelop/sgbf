@@ -29,10 +29,12 @@ namespace SGBF.Models
         public System.DateTime data_fundacao { get; set; }
         public byte[] escudo { get; set; }
         public Nullable<int> id_estadio { get; set; }
+        public Nullable<int> id_treinador { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Equipe_Campeonato> Equipe_Campeonato { get; set; }
         public virtual Estadio Estadio { get; set; }
+        public virtual Treinador Treinador { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Jogador> Jogador { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
