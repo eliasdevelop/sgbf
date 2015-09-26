@@ -4,15 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6ef49f6fc0464d349fd6220628262b86" Name="Diagram1">
-        <EntityTypeShape EntityType="SGBFModel.Arbitro" Width="1.5" PointX="6" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SGBFModel.Campeonato" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SGBFModel.Equipe" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SGBFModel.Equipe_Campeonato" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SGBFModel.Estadio" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SGBFModel.Jogador" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SGBFModel.Jogo" Width="1.5" PointX="8.25" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SGBFModel.Treinador" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+      <Diagram DiagramId="708cccca980c4c55b67bd4df94ca0ed2" Name="Diagram1">
+        <EntityTypeShape EntityType="SGBFModel.Arbitro" Width="1.5" PointX="6" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SGBFModel.Campeonato" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SGBFModel.Equipe" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SGBFModel.Equipe_Campeonato" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SGBFModel.Estadio" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SGBFModel.Jogador" Width="1.5" PointX="5.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SGBFModel.Jogo" Width="1.5" PointX="8.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SGBFModel.Treinador" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
         <AssociationConnector Association="SGBFModel.FK_Jogo_Arbitro" ManuallyRouted="false" />
         <AssociationConnector Association="SGBFModel.FK_Equipe_Campeonato_Campeonato" ManuallyRouted="false" />
         <AssociationConnector Association="SGBFModel.FK_Jogo_Campeonato" ManuallyRouted="false" />

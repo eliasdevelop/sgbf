@@ -56,16 +56,18 @@ namespace SGBF.Views.Jogo
 
                 if (gols_casa > gols_fora)
                 {
-                    EquipeCampeonatoHelper.addPontuacao(jogo.id_equipe_casa, jogo.id_campeonato, 3);
+                    EquipeCampeonatoHelper.addPontuacao(jogo.id_equipe_casa, jogo.id_campeonato, 3, gols_casa, gols_fora);
+                    EquipeCampeonatoHelper.addPontuacao(jogo.id_equipe_visitante, jogo.id_campeonato, 0, gols_fora, gols_casa);
                 }
                 else if(gols_fora > gols_casa)
                 {
-                    EquipeCampeonatoHelper.addPontuacao(jogo.id_equipe_visitante, jogo.id_campeonato, 3);
+                    EquipeCampeonatoHelper.addPontuacao(jogo.id_equipe_visitante, jogo.id_campeonato, 3, gols_fora, gols_casa);
+                    EquipeCampeonatoHelper.addPontuacao(jogo.id_equipe_casa, jogo.id_campeonato, 0, gols_casa, gols_fora);
                 }
                 else
                 {
-                    EquipeCampeonatoHelper.addPontuacao(jogo.id_equipe_casa, jogo.id_campeonato, 1);
-                    EquipeCampeonatoHelper.addPontuacao(jogo.id_equipe_visitante, jogo.id_campeonato, 1);
+                    EquipeCampeonatoHelper.addPontuacao(jogo.id_equipe_casa, jogo.id_campeonato, 1, gols_casa, gols_fora);
+                    EquipeCampeonatoHelper.addPontuacao(jogo.id_equipe_visitante, jogo.id_campeonato, 1, gols_fora, gols_casa);
                 }
 
                 Session["flash_message"] = "Placar salvo com sucesso";

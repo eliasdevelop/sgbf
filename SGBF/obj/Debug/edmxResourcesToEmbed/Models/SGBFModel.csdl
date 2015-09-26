@@ -45,6 +45,12 @@
     <Property Name="id_campeonato" Type="Int32" Nullable="false" />
     <Property Name="id_equipe" Type="Int32" Nullable="false" />
     <Property Name="num_pontuacao" Type="Int32" Nullable="false" />
+    <Property Name="quant_jogos" Type="Int32" Nullable="false" />
+    <Property Name="vitorias" Type="Int32" Nullable="false" />
+    <Property Name="empates" Type="Int32" Nullable="false" />
+    <Property Name="derrotas" Type="Int32" Nullable="false" />
+    <Property Name="gols_pro" Type="Int32" Nullable="false" />
+    <Property Name="gols_contra" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Campeonato" Relationship="Self.FK_Equipe_Campeonato_Campeonato" FromRole="Equipe_Campeonato" ToRole="Campeonato" />
     <NavigationProperty Name="Equipe" Relationship="Self.FK_Equipe_Campeonato_Equipe" FromRole="Equipe_Campeonato" ToRole="Equipe" />
   </EntityType>

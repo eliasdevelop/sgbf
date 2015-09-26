@@ -38,6 +38,12 @@
           <ScalarProperty Name="id_campeonato" ColumnName="id_campeonato" />
           <ScalarProperty Name="id_equipe" ColumnName="id_equipe" />
           <ScalarProperty Name="num_pontuacao" ColumnName="num_pontuacao" />
+          <ScalarProperty Name="quant_jogos" ColumnName="quant_jogos" />
+          <ScalarProperty Name="vitorias" ColumnName="vitorias" />
+          <ScalarProperty Name="empates" ColumnName="empates" />
+          <ScalarProperty Name="derrotas" ColumnName="derrotas" />
+          <ScalarProperty Name="gols_pro" ColumnName="gols_pro" />
+          <ScalarProperty Name="gols_contra" ColumnName="gols_contra" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

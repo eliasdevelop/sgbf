@@ -17,6 +17,12 @@ namespace SGBF.Models
         public int id_campeonato { get; set; }
         public int id_equipe { get; set; }
         public int num_pontuacao { get; set; }
+        public int quant_jogos { get; set; }
+        public int vitorias { get; set; }
+        public int empates { get; set; }
+        public int derrotas { get; set; }
+        public int gols_pro { get; set; }
+        public int gols_contra { get; set; }
     
         public virtual Campeonato Campeonato { get; set; }
         public virtual Equipe Equipe { get; set; }

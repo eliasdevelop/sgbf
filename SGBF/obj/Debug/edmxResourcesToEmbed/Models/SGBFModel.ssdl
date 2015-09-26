@@ -36,6 +36,12 @@
     <Property Name="id_campeonato" Type="int" Nullable="false" />
     <Property Name="id_equipe" Type="int" Nullable="false" />
     <Property Name="num_pontuacao" Type="int" Nullable="false" />
+    <Property Name="quant_jogos" Type="int" Nullable="false" />
+    <Property Name="vitorias" Type="int" Nullable="false" />
+    <Property Name="empates" Type="int" Nullable="false" />
+    <Property Name="derrotas" Type="int" Nullable="false" />
+    <Property Name="gols_pro" Type="int" Nullable="false" />
+    <Property Name="gols_contra" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Estadio">
     <Key>

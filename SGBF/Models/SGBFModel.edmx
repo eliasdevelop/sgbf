@@ -41,6 +41,12 @@
           <Property Name="id_campeonato" Type="int" Nullable="false" />
           <Property Name="id_equipe" Type="int" Nullable="false" />
           <Property Name="num_pontuacao" Type="int" Nullable="false" />
+          <Property Name="quant_jogos" Type="int" Nullable="false" />
+          <Property Name="vitorias" Type="int" Nullable="false" />
+          <Property Name="empates" Type="int" Nullable="false" />
+          <Property Name="derrotas" Type="int" Nullable="false" />
+          <Property Name="gols_pro" Type="int" Nullable="false" />
+          <Property Name="gols_contra" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Estadio">
           <Key>
@@ -291,6 +297,12 @@
           <Property Name="id_campeonato" Type="Int32" Nullable="false" />
           <Property Name="id_equipe" Type="Int32" Nullable="false" />
           <Property Name="num_pontuacao" Type="Int32" Nullable="false" />
+          <Property Name="quant_jogos" Type="Int32" Nullable="false" />
+          <Property Name="vitorias" Type="Int32" Nullable="false" />
+          <Property Name="empates" Type="Int32" Nullable="false" />
+          <Property Name="derrotas" Type="Int32" Nullable="false" />
+          <Property Name="gols_pro" Type="Int32" Nullable="false" />
+          <Property Name="gols_contra" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Campeonato" Relationship="Self.FK_Equipe_Campeonato_Campeonato" FromRole="Equipe_Campeonato" ToRole="Campeonato" />
           <NavigationProperty Name="Equipe" Relationship="Self.FK_Equipe_Campeonato_Equipe" FromRole="Equipe_Campeonato" ToRole="Equipe" />
         </EntityType>
@@ -543,6 +555,12 @@
                 <ScalarProperty Name="id_campeonato" ColumnName="id_campeonato" />
                 <ScalarProperty Name="id_equipe" ColumnName="id_equipe" />
                 <ScalarProperty Name="num_pontuacao" ColumnName="num_pontuacao" />
+                <ScalarProperty Name="quant_jogos" ColumnName="quant_jogos" />
+                <ScalarProperty Name="vitorias" ColumnName="vitorias" />
+                <ScalarProperty Name="empates" ColumnName="empates" />
+                <ScalarProperty Name="derrotas" ColumnName="derrotas" />
+                <ScalarProperty Name="gols_pro" ColumnName="gols_pro" />
+                <ScalarProperty Name="gols_contra" ColumnName="gols_contra" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
