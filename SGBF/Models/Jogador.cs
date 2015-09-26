@@ -14,6 +14,12 @@ namespace SGBF.Models
     
     public partial class Jogador
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Jogador()
+        {
+            this.Escalacao = new HashSet<Escalacao>();
+        }
+    
         public string cpf { get; set; }
         public string apelido { get; set; }
         public string nome { get; set; }
@@ -27,5 +33,7 @@ namespace SGBF.Models
         public Nullable<int> id_equipe { get; set; }
     
         public virtual Equipe Equipe { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Escalacao> Escalacao { get; set; }
     }
 }

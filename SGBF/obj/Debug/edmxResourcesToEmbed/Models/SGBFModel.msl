@@ -47,6 +47,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Escalacao">
+      <EntityTypeMapping TypeName="SGBFModel.Escalacao">
+        <MappingFragment StoreEntitySet="Escalacao">
+          <ScalarProperty Name="id_jogador" ColumnName="id_jogador" />
+          <ScalarProperty Name="id_jogo" ColumnName="id_jogo" />
+          <ScalarProperty Name="nr_cartao_amarelo" ColumnName="nr_cartao_amarelo" />
+          <ScalarProperty Name="nr_cartao_vermelho" ColumnName="nr_cartao_vermelho" />
+          <ScalarProperty Name="fl_titular" ColumnName="fl_titular" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Estadio">
       <EntityTypeMapping TypeName="SGBFModel.Estadio">
         <MappingFragment StoreEntitySet="Estadio">

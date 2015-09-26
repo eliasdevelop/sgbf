@@ -33,6 +33,15 @@ namespace SGBF.Controllers
             }           
         }
 
+        public List<Jogador> find_by_equipe(int id_equipe)
+        {
+            var con = db();
+
+            return con.Jogador.Where(Jogador => Jogador.id_equipe == id_equipe).ToList();
+  
+        }
+
+
 
         public bool create(String cpf, String apelido, String nome, int num_camisa, String posicao,
                            String nacionalidade, DateTime data_nasc, String email, String id_equipe )

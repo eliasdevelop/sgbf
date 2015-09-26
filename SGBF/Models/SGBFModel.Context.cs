@@ -29,6 +29,7 @@ namespace SGBF.Models
         public virtual DbSet<Campeonato> Campeonato { get; set; }
         public virtual DbSet<Equipe> Equipe { get; set; }
         public virtual DbSet<Equipe_Campeonato> Equipe_Campeonato { get; set; }
+        public virtual DbSet<Escalacao> Escalacao { get; set; }
         public virtual DbSet<Estadio> Estadio { get; set; }
         public virtual DbSet<Jogador> Jogador { get; set; }
         public virtual DbSet<Jogo> Jogo { get; set; }

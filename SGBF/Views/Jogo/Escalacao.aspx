@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/MasterPage/App.Master" AutoEventWireup="true" CodeBehind="Placar.aspx.cs" Inherits="SGBF.Views.Jogo.Placar" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/MasterPage/App.Master" AutoEventWireup="true" CodeBehind="Escalacao.aspx.cs" Inherits="SGBF.Views.Jogo.Escalacao" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -40,7 +40,7 @@
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                        <asp:Label Text="Equipe Fora" runat="server" />
+                        <asp:Label Text="Equipe Casa" runat="server" />
                         <div>
                             <asp:TextBox runat="server" ID="equipeFora" CssClass="form-control" ReadOnly="true" />
                         </div>
@@ -51,22 +51,33 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                        <asp:Label Text="Gols - Equipe Casa" runat="server" />
-                        <div>
-                            <asp:TextBox runat="server" ID="gols_equipe_casa" CssClass="form-control" />
-                            <asp:RequiredFieldValidator CssClass="error-message" runat="server"
-                        ControlToValidate="gols_equipe_casa" ErrorMessage="Campo obrigatório" EnableClientScript="true"></asp:RequiredFieldValidator>
-                        </div>
+                        <asp:Label Text="Titulares - Casa" runat="server" />
+                        <asp:checkboxlist ID="titularesCasa" runat="server">
+                        </asp:checkboxlist>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                        <asp:Label Text="Gols - Equipe Fora" runat="server" />
-                        <div>
-                            <asp:TextBox runat="server" ID="gols_equipe_fora" CssClass="form-control" />
-                            <asp:RequiredFieldValidator CssClass="error-message" runat="server"
-                        ControlToValidate="gols_equipe_fora" ErrorMessage="Campo obrigatório" EnableClientScript="true"></asp:RequiredFieldValidator>
-                        </div>  
+                        <asp:Label Text="Titulares - Fora" runat="server" />
+                        <asp:checkboxlist ID="titularesFora" runat="server">
+                        </asp:checkboxlist>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                        <asp:Label Text="Reservas - Casa" runat="server" />
+                        <asp:checkboxlist ID="reservasCasa" runat="server">
+                        </asp:checkboxlist>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                        <asp:Label Text="Reservas - Fora" runat="server" />
+                         <asp:checkboxlist ID="reservasFora" runat="server">
+                        </asp:checkboxlist>
                     </div>
                   </div>
                 </div>

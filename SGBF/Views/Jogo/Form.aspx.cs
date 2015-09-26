@@ -26,8 +26,10 @@ namespace SGBF.Views.Jogo
             {
                 Models.Jogo jogo = (Models.Jogo)e.Row.DataItem;
 
-                HyperLink edit = e.Row.Cells[4].Controls[0] as HyperLink;
-                edit.NavigateUrl = "~/Views/Jogo/Placar.aspx?id=" + jogo.id;
+                HyperLink placar = e.Row.Cells[4].Controls[0] as HyperLink;
+                placar.NavigateUrl = "~/Views/Jogo/Placar.aspx?id=" + jogo.id;
+                HyperLink escalacao = e.Row.Cells[5].Controls[0] as HyperLink;
+                escalacao.NavigateUrl = "~/Views/Jogo/Escalacao.aspx?id=" + jogo.id;
             }
         }
 

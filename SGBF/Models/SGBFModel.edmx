@@ -48,6 +48,17 @@
           <Property Name="gols_pro" Type="int" Nullable="false" />
           <Property Name="gols_contra" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="Escalacao">
+          <Key>
+            <PropertyRef Name="id_jogador" />
+            <PropertyRef Name="id_jogo" />
+          </Key>
+          <Property Name="id_jogador" Type="int" Nullable="false" />
+          <Property Name="id_jogo" Type="int" Nullable="false" />
+          <Property Name="nr_cartao_amarelo" Type="int" Nullable="false" />
+          <Property Name="nr_cartao_vermelho" Type="int" Nullable="false" />
+          <Property Name="fl_titular" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="Estadio">
           <Key>
             <PropertyRef Name="id" />
@@ -141,6 +152,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Escalacao_Jogador">
+          <End Role="Jogador" Type="Self.Jogador" Multiplicity="1" />
+          <End Role="Escalacao" Type="Self.Escalacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jogador">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Escalacao">
+              <PropertyRef Name="id_jogador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Escalacao_Jogo">
+          <End Role="Jogo" Type="Self.Jogo" Multiplicity="1" />
+          <End Role="Escalacao" Type="Self.Escalacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jogo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Escalacao">
+              <PropertyRef Name="id_jogo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Jogador_Equipe">
           <End Role="Equipe" Type="Self.Equipe" Multiplicity="0..1" />
           <End Role="Jogador" Type="Self.Jogador" Multiplicity="*" />
@@ -206,6 +241,7 @@
           <EntitySet Name="Campeonato" EntityType="Self.Campeonato" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Equipe" EntityType="Self.Equipe" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Equipe_Campeonato" EntityType="Self.Equipe_Campeonato" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Escalacao" EntityType="Self.Escalacao" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Estadio" EntityType="Self.Estadio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Jogador" EntityType="Self.Jogador" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Jogo" EntityType="Self.Jogo" Schema="dbo" store:Type="Tables" />
@@ -225,6 +261,14 @@
           <AssociationSet Name="FK_Equipe_Treinador" Association="Self.FK_Equipe_Treinador">
             <End Role="Treinador" EntitySet="Treinador" />
             <End Role="Equipe" EntitySet="Equipe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Escalacao_Jogador" Association="Self.FK_Escalacao_Jogador">
+            <End Role="Jogador" EntitySet="Jogador" />
+            <End Role="Escalacao" EntitySet="Escalacao" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Escalacao_Jogo" Association="Self.FK_Escalacao_Jogo">
+            <End Role="Jogo" EntitySet="Jogo" />
+            <End Role="Escalacao" EntitySet="Escalacao" />
           </AssociationSet>
           <AssociationSet Name="FK_Jogador_Equipe" Association="Self.FK_Jogador_Equipe">
             <End Role="Equipe" EntitySet="Equipe" />
@@ -306,6 +350,19 @@
           <NavigationProperty Name="Campeonato" Relationship="Self.FK_Equipe_Campeonato_Campeonato" FromRole="Equipe_Campeonato" ToRole="Campeonato" />
           <NavigationProperty Name="Equipe" Relationship="Self.FK_Equipe_Campeonato_Equipe" FromRole="Equipe_Campeonato" ToRole="Equipe" />
         </EntityType>
+        <EntityType Name="Escalacao">
+          <Key>
+            <PropertyRef Name="id_jogador" />
+            <PropertyRef Name="id_jogo" />
+          </Key>
+          <Property Name="id_jogador" Type="Int32" Nullable="false" />
+          <Property Name="id_jogo" Type="Int32" Nullable="false" />
+          <Property Name="nr_cartao_amarelo" Type="Int32" Nullable="false" />
+          <Property Name="nr_cartao_vermelho" Type="Int32" Nullable="false" />
+          <Property Name="fl_titular" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Jogador" Relationship="Self.FK_Escalacao_Jogador" FromRole="Escalacao" ToRole="Jogador" />
+          <NavigationProperty Name="Jogo" Relationship="Self.FK_Escalacao_Jogo" FromRole="Escalacao" ToRole="Jogo" />
+        </EntityType>
         <EntityType Name="Estadio">
           <Key>
             <PropertyRef Name="id" />
@@ -332,6 +389,7 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="id_equipe" Type="Int32" />
           <NavigationProperty Name="Equipe" Relationship="Self.FK_Jogador_Equipe" FromRole="Jogador" ToRole="Equipe" />
+          <NavigationProperty Name="Escalacao" Relationship="Self.FK_Escalacao_Jogador" FromRole="Jogador" ToRole="Escalacao" />
         </EntityType>
         <EntityType Name="Jogo">
           <Key>
@@ -348,6 +406,7 @@
           <NavigationProperty Name="Campeonato" Relationship="Self.FK_Jogo_Campeonato" FromRole="Jogo" ToRole="Campeonato" />
           <NavigationProperty Name="Equipe" Relationship="Self.FK_Jogo_EquipeCasa" FromRole="Jogo" ToRole="Equipe" />
           <NavigationProperty Name="Equipe1" Relationship="Self.FK_Jogo_EquipeVisitante" FromRole="Jogo" ToRole="Equipe" />
+          <NavigationProperty Name="Escalacao" Relationship="Self.FK_Escalacao_Jogo" FromRole="Jogo" ToRole="Escalacao" />
         </EntityType>
         <EntityType Name="Treinador">
           <Key>
@@ -466,11 +525,36 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Escalacao_Jogador">
+          <End Role="Jogador" Type="Self.Jogador" Multiplicity="1" />
+          <End Role="Escalacao" Type="Self.Escalacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jogador">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Escalacao">
+              <PropertyRef Name="id_jogador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Escalacao_Jogo">
+          <End Role="Jogo" Type="Self.Jogo" Multiplicity="1" />
+          <End Role="Escalacao" Type="Self.Escalacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jogo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Escalacao">
+              <PropertyRef Name="id_jogo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Arbitro" EntityType="Self.Arbitro" />
           <EntitySet Name="Campeonato" EntityType="Self.Campeonato" />
           <EntitySet Name="Equipe" EntityType="Self.Equipe" />
           <EntitySet Name="Equipe_Campeonato" EntityType="Self.Equipe_Campeonato" />
+          <EntitySet Name="Escalacao" EntityType="Self.Escalacao" />
           <EntitySet Name="Estadio" EntityType="Self.Estadio" />
           <EntitySet Name="Jogador" EntityType="Self.Jogador" />
           <EntitySet Name="Jogo" EntityType="Self.Jogo" />
@@ -510,6 +594,14 @@
           <AssociationSet Name="FK_Jogo_EquipeVisitante" Association="Self.FK_Jogo_EquipeVisitante">
             <End Role="Equipe" EntitySet="Equipe" />
             <End Role="Jogo" EntitySet="Jogo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Escalacao_Jogador" Association="Self.FK_Escalacao_Jogador">
+            <End Role="Jogador" EntitySet="Jogador" />
+            <End Role="Escalacao" EntitySet="Escalacao" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Escalacao_Jogo" Association="Self.FK_Escalacao_Jogo">
+            <End Role="Jogo" EntitySet="Jogo" />
+            <End Role="Escalacao" EntitySet="Escalacao" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -561,6 +653,17 @@
                 <ScalarProperty Name="derrotas" ColumnName="derrotas" />
                 <ScalarProperty Name="gols_pro" ColumnName="gols_pro" />
                 <ScalarProperty Name="gols_contra" ColumnName="gols_contra" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Escalacao">
+            <EntityTypeMapping TypeName="SGBFModel.Escalacao">
+              <MappingFragment StoreEntitySet="Escalacao">
+                <ScalarProperty Name="id_jogador" ColumnName="id_jogador" />
+                <ScalarProperty Name="id_jogo" ColumnName="id_jogo" />
+                <ScalarProperty Name="nr_cartao_amarelo" ColumnName="nr_cartao_amarelo" />
+                <ScalarProperty Name="nr_cartao_vermelho" ColumnName="nr_cartao_vermelho" />
+                <ScalarProperty Name="fl_titular" ColumnName="fl_titular" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

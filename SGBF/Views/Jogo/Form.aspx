@@ -35,6 +35,7 @@
                         <asp:BoundField HeaderText="Equipe Fora" DataField="equipe1.nome" />
                         <asp:BoundField HeaderText="Arbitro" DataField="arbitro.nome" />
                         <asp:HyperLinkField Text="Placar" />
+                        <asp:HyperLinkField Text="Escalação" />
                     </Columns>
                 </asp:GridView>
             </div>

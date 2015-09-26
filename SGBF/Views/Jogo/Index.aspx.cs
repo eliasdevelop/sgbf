@@ -54,6 +54,7 @@ namespace SGBF.Views.Jogo
             }    
         }
 
+
         protected void Delete_Click(object sender, EventArgs e)
         {
             GridViewRow row = (GridViewRow)((LinkButton)sender).NamingContainer;

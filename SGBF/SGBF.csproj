@@ -101,6 +101,7 @@
     <Content Include="Views\Estadio\Index.aspx" />
     <Content Include="Views\Jogador\Form.aspx" />
     <Content Include="Views\Jogador\Index.aspx" />
+    <Content Include="Views\Jogo\Escalacao.aspx" />
     <Content Include="Views\Jogo\Form.aspx" />
     <Content Include="Views\Jogo\Index.aspx" />
     <Content Include="Views\Jogo\Placar.aspx" />
@@ -146,6 +147,7 @@
     <Compile Include="Controllers\CampeonatoController.cs" />
     <Compile Include="Controllers\EquipeCampeonatoController.cs" />
     <Compile Include="Controllers\EquipeController.cs" />
+    <Compile Include="Controllers\EscalacaoController.cs" />
     <Compile Include="Controllers\EstadioController.cs" />
     <Compile Include="Controllers\JogadorController.cs" />
     <Compile Include="Controllers\JogoController.cs" />
@@ -155,6 +157,7 @@
     <Compile Include="Helpers\EquipeCampeonatoHelper.cs" />
     <Compile Include="Helpers\EquipeHelper.cs" />
     <Compile Include="Helpers\EstadioHelper.cs" />
+    <Compile Include="Helpers\JogadorHelper.cs" />
     <Compile Include="Helpers\TreinadorHelper.cs" />
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -173,6 +176,9 @@
       <DependentUpon>SGBFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Equipe_Campeonato.cs">
+      <DependentUpon>SGBFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Escalacao.cs">
       <DependentUpon>SGBFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Estadio.cs">
@@ -279,6 +285,13 @@
     </Compile>
     <Compile Include="Views\Jogador\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Jogo\Escalacao.aspx.cs">
+      <DependentUpon>Escalacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Jogo\Escalacao.aspx.designer.cs">
+      <DependentUpon>Escalacao.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Jogo\Form.aspx.cs">
       <DependentUpon>Form.aspx</DependentUpon>
